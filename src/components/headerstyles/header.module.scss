@@ -72,7 +72,7 @@
 		align-items: center;
 		height: 8rem;
 		opacity: 0.8;
-		max-height: 20rem;
+		max-height: 25rem;
 
 		& h3 {
 			font-family: 'Eb Garamond', serif, sans-serif;
@@ -83,15 +83,15 @@
 			font-size: 2.5rem;
 		}
 		&:hover {
-			height: 15rem;
+			height: 25rem;
 			cursor: pointer;
 			background: lighter($brand-brown, 5%);
 		}
 		&:hover svg {
-			font-size: 3.5rem;
+			font-size: 4rem;
 		}
 		&:hover li svg {
-			font-size: 1.2rem;
+			font-size: 2rem;
 		}
 
 		& ul {
@@ -115,6 +115,10 @@
 		}
 		&:hover ul li p {
 			opacity: 1;
+			font-size: 2rem;
+		}
+		&:hover h3 {
+			font-size: 2rem;
 		}
 
 		&:nth-child(1) {

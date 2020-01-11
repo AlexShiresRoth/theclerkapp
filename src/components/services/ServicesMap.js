@@ -1,17 +1,23 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { services } from './servicesArray';
-import { MdKeyboardArrowDown, MdKeyboardArrowUp } from 'react-icons/md';
+import { MdKeyboardArrowDown, MdKeyboardArrowUp, MdClear } from 'react-icons/md';
 import { servicesImages } from './servicesImages';
 import servicesStyles from './servicesstyles/ServicesMap.module.scss';
 import ServicesIndexMarker from './ServiceIndexMarker';
 //TODO debug scroll speed behavior
 
 const ServicesMap = () => {
-	const [position, setPosition] = useState('');
+	const [containerStyle, setContainerStyle] = useState({
+		position: '',
+		top: '0px',
+	});
+	const [currentIndex, setCurrentIndex] = useState(0);
+
 	const serviceRef = useRef();
 	let animationRef = useRef();
 
 	const scrollServicesUp = () => {
+		setCurrentIndex(prevIndex => (prevIndex -= 1));
 		if (serviceRef.current) {
 			serviceRef.current.scrollTop = serviceRef.current.scrollTop -= serviceRef.current.getBoundingClientRect().height;
 			animationRef = requestAnimationFrame(scrollServicesUp);
@@ -19,12 +25,24 @@ const ServicesMap = () => {
 		cancelAnimationFrame(animationRef);
 	};
 	const scrollServicesDown = () => {
+		setCurrentIndex(prevIndex => (prevIndex += 1));
 		if (serviceRef.current) {
 			serviceRef.current.scrollTop = serviceRef.current.scrollTop += serviceRef.current.getBoundingClientRect().height;
 			animationRef = requestAnimationFrame(scrollServicesDown);
 		}
 		cancelAnimationFrame(animationRef);
 	};
+	const breakFromFixedPosition = e => {
+		setContainerStyle({
+			position: '',
+			top: '0',
+		});
+		window.scrollTo({
+			top: 0,
+			behavior: 'smooth',
+		});
+	};
+
 	const servicesMap = services.map((service, i) => {
 		return (
 			<div
@@ -59,10 +77,15 @@ const ServicesMap = () => {
 		const observer = new IntersectionObserver(
 			([entry]) => {
 				if (entry.isIntersecting) {
-					console.log(entry);
-					setPosition('fixed');
+					setContainerStyle({
+						position: 'fixed',
+						top: '0rem',
+					});
 				} else {
-					setPosition('');
+					setContainerStyle({
+						position: '',
+						top: '',
+					});
 				}
 			},
 			{ rootMargin: '0px', threshold: 1 }
@@ -70,11 +93,20 @@ const ServicesMap = () => {
 		if (serviceRef.current) {
 			observer.observe(serviceRef.current);
 		}
-	});
+	}, []);
 	return (
-		<div className={servicesStyles.services__container} ref={serviceRef} style={{ position: position }}>
+		<div className={servicesStyles.services__container} ref={serviceRef} style={{ ...containerStyle }}>
+			{containerStyle.position === 'fixed' ? (
+				<div className={servicesStyles.close__button} onClick={e => breakFromFixedPosition(e)}>
+					<MdClear />
+				</div>
+			) : (
+				<div className={servicesStyles.close__button__hidden}></div>
+			)}
 			{servicesMap}
-			<ServicesIndexMarker />
+			{containerStyle.position === 'fixed' ? (
+				<ServicesIndexMarker index={currentIndex} services={services} />
+			) : null}
 		</div>
 	);
 };

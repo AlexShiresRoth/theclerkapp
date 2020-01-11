@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { services } from './servicesArray';
 import { MdKeyboardArrowDown, MdKeyboardArrowUp } from 'react-icons/md';
 import { servicesImages } from './servicesImages';
@@ -7,6 +7,7 @@ import ServicesIndexMarker from './ServiceIndexMarker';
 //TODO debug scroll speed behavior
 
 const ServicesMap = () => {
+	const [position, setPosition] = useState('');
 	const serviceRef = useRef();
 	let animationRef = useRef();
 
@@ -34,7 +35,6 @@ const ServicesMap = () => {
 					backgroundRepeat: 'no-repeat',
 					backgroundAttachment: 'fixed',
 				}}
-				ref={serviceRef}
 			>
 				{i > 0 && i <= services.length - 1 ? (
 					<MdKeyboardArrowUp className={servicesStyles.arrow__up} onClick={() => scrollServicesUp(i)} />
@@ -58,19 +58,21 @@ const ServicesMap = () => {
 	useEffect(() => {
 		const observer = new IntersectionObserver(
 			([entry]) => {
-				console.log(entry);
-				if (entry.intersectionRatio === 1) {
+				if (entry.isIntersecting) {
 					console.log(entry);
+					setPosition('fixed');
+				} else {
+					setPosition('');
 				}
 			},
-			{ rootMargin: '0px 0px -200px 0px', threshold: 1 }
+			{ rootMargin: '0px', threshold: 1 }
 		);
 		if (serviceRef.current) {
 			observer.observe(serviceRef.current);
 		}
-	}, []);
+	});
 	return (
-		<div className={servicesStyles.services__container}>
+		<div className={servicesStyles.services__container} ref={serviceRef} style={{ position: position }}>
 			{servicesMap}
 			<ServicesIndexMarker />
 		</div>

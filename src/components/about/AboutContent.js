@@ -1,20 +1,22 @@
-import { graphql } from 'react-apollo';
+import { useQuery } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
 
 export default () => {
-	const data = graphql(gql`
+	const FETCH_ABOUT_CONTENT = gql`
 		query {
-			_allDocuments {
+			allPages {
 				edges {
 					node {
-						_meta {
-							id
-						}
+						aboutcontent
 					}
 				}
 			}
 		}
-	`);
-	console.log(data);
-	return data;
+	`;
+	const { data, loading } = useQuery(FETCH_ABOUT_CONTENT);
+
+	if (data) {
+		console.log(data.allPages.edges[0].node.aboutcontent);
+		return data.allPages.edges[0].node.aboutcontent;
+	}
 };

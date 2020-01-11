@@ -14,6 +14,7 @@ const client = new ApolloClient({
 	link: new PrismicLink({ uri: 'https://clerkofoxford.prismic.io/graphql', repositoryName: 'clerkofoxford' }),
 	cache: new InMemoryCache(),
 });
+
 const App = () => {
 	return (
 		<ApolloProvider client={client}>

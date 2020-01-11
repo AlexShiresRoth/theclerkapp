@@ -1,233 +1,233 @@
-@import "../../../sass/variables";
+@import '../../../sass/variables';
 
 .header {
-  max-height: 100vh;
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background-color: #557a95;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 100 100'%3E%3Cg stroke='%237395ae' stroke-width='7.5' stroke-opacity='0.15'%3E%3Crect fill='%237395ae' x='-60' y='-60' width='61' height='240'/%3E%3C/g%3E%3C/svg%3E");
-  position: relative;
+	max-height: 100vh;
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	background-color: #557a95;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 100 100'%3E%3Cg stroke='%237395ae' stroke-width='7.5' stroke-opacity='0.15'%3E%3Crect fill='%237395ae' x='-60' y='-60' width='61' height='240'/%3E%3C/g%3E%3C/svg%3E");
+	position: relative;
 }
 
 .text__box {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  & h1 {
-    font-family: "EB Garamond", sans-serif;
-    color: $brand-text;
-    opacity: 0;
-    animation: fadeinheading 1s linear forwards;
-    font-size: 4rem;
-    margin: 1rem 0;
-  }
-  & h2 {
-    color: darken($brand-text, 10%);
-    opacity: 0;
-    animation: fadeinheading 2s linear forwards;
-    font-size: 3rem;
-    font-family: "Tangerine", sans-serif;
-  }
-  & .divider {
-    opacity: 0;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width: 40vw;
-    color: $brand-brown;
-    animation: fadeinheading 1.5s linear forwards;
-    & svg {
-      font-size: 2rem;
-      margin: 0 0.5rem;
-    }
-    & span {
-      height: 0.2rem;
-      width: 10vw;
-      background: $brand-accent;
-    }
-  }
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	& h1 {
+		font-family: 'Cormorant Garamond', sans-serif;
+		color: $brand-text;
+		opacity: 0;
+		animation: fadeinheading 1s linear forwards;
+		font-size: 5rem;
+		margin: 1rem 0;
+	}
+	& h2 {
+		color: darken($brand-text, 10%);
+		opacity: 0;
+		animation: fadeinheading 2s linear forwards;
+		font-size: 4rem;
+		font-family: 'Tangerine', sans-serif;
+	}
+	& .divider {
+		opacity: 0;
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		width: 40vw;
+		color: $brand-brown;
+		animation: fadeinheading 1.5s linear forwards;
+		& svg {
+			font-size: 2rem;
+			margin: 0 0.5rem;
+		}
+		& span {
+			height: 0.2rem;
+			width: 10vw;
+			background: $brand-accent;
+		}
+	}
 }
 
 .services__grid {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  bottom: 0%;
-  left: 0;
-  width: 100%;
-  max-height: 10rem;
-  & .item {
-    color: $brand-text;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 8rem;
-    opacity: 0.8;
-    max-height: 20rem;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	bottom: 0%;
+	left: 0;
+	width: 100%;
+	max-height: 10rem;
+	& .item {
+		color: $brand-text;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		height: 8rem;
+		opacity: 0.8;
+		max-height: 20rem;
 
-    & h3 {
-      font-family: "Eb Garamond", serif, sans-serif;
-      font-size: 1.3rem;
-      letter-spacing: 0.9px;
-    }
-    & svg {
-      font-size: 2.5rem;
-    }
-    &:hover {
-      height: 15rem;
-      cursor: pointer;
-      background: lighter($brand-brown, 5%);
-    }
-    &:hover svg {
-      font-size: 3.5rem;
-    }
-    &:hover li svg {
-      font-size: 1.2rem;
-    }
+		& h3 {
+			font-family: 'Eb Garamond', serif, sans-serif;
+			font-size: 1.3rem;
+			letter-spacing: 0.9px;
+		}
+		& svg {
+			font-size: 2.5rem;
+		}
+		&:hover {
+			height: 15rem;
+			cursor: pointer;
+			background: lighter($brand-brown, 5%);
+		}
+		&:hover svg {
+			font-size: 3.5rem;
+		}
+		&:hover li svg {
+			font-size: 1.2rem;
+		}
 
-    & ul {
-      font-size: 0rem;
-      opacity: 0;
-      animation: fadein 0.5s linear forwards;
-      & li {
-        list-style: none;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        & p {
-          margin: 0 0.5rem;
-          opacity: 0;
-        }
-      }
-    }
-    &:hover ul {
-      font-size: 1rem;
-      opacity: 1;
-    }
-    &:hover ul li p {
-      opacity: 1;
-    }
+		& ul {
+			font-size: 0rem;
+			opacity: 0;
+			animation: fadein 0.5s linear forwards;
+			& li {
+				list-style: none;
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				& p {
+					margin: 0 0.5rem;
+					opacity: 0;
+				}
+			}
+		}
+		&:hover ul {
+			font-size: 1rem;
+			opacity: 1;
+		}
+		&:hover ul li p {
+			opacity: 1;
+		}
 
-    &:nth-child(1) {
-      background: $brand-brown;
-      transition: all 0.4s ease-in-out;
-      align-self: flex-end;
-      opacity: 0;
-      animation: fadeinheading 1s linear forwards;
-    }
-    &:nth-child(2) {
-      background: $brand-blue;
-      transition: all 0.4s ease-in-out;
-      align-self: flex-end;
-      opacity: 0;
-      animation: fadeinheading 1s linear 0.5s forwards;
-    }
-    &:nth-child(3) {
-      background: $brand-accent;
-      transition: all 0.4s ease-in-out;
-      align-self: flex-end;
-      opacity: 0;
-      animation: fadeinheading 1s linear 1s forwards;
-    }
-  }
+		&:nth-child(1) {
+			background: $brand-brown;
+			transition: all 0.4s ease-in-out;
+			align-self: flex-end;
+			opacity: 0;
+			animation: fadeinheading 1s linear forwards;
+		}
+		&:nth-child(2) {
+			background: $brand-blue;
+			transition: all 0.4s ease-in-out;
+			align-self: flex-end;
+			opacity: 0;
+			animation: fadeinheading 1s linear 0.5s forwards;
+		}
+		&:nth-child(3) {
+			background: $brand-accent;
+			transition: all 0.4s ease-in-out;
+			align-self: flex-end;
+			opacity: 0;
+			animation: fadeinheading 1s linear 1s forwards;
+		}
+	}
 }
 
 @media screen and (max-width: 700px) {
-  .header {
-    max-height: 100vh;
-    height: 100vh;
-  }
-  .services__grid {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    max-height: 100rem;
-    & .item {
-      color: $brand-text;
-      width: 100%;
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      opacity: 0.8;
-      transition: all 0.3s ease-in-out;
-      align-self: flex-end;
-      height: 4rem;
-      max-height: 13rem;
-      &:hover {
-        flex-direction: column;
-      }
-      & h3 {
-        font-family: "Eb Garamond", serif, sans-serif;
-        font-size: 1rem;
-        letter-spacing: 0.9px;
-      }
-      & svg {
-        font-size: 1.6rem;
-        margin: 0 0.5rem;
-      }
-      &:hover svg {
-        font-size: 2.2rem;
-      }
-      & ul {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding: 0;
-      }
-      &:hover h3,
-      &:hover svg,
-      &:hover ul {
-        margin: 0 0 0.5rem 0;
-      }
-      & ul li p {
-        font-size: 0.9rem;
-      }
-    }
-  }
-  .text__box {
-    & h1 {
-      text-align: center;
-      font-size: 2rem;
-      margin: 1rem;
-    }
-    & h2 {
-      font-size: 2rem;
-    }
-  }
+	.header {
+		max-height: 100vh;
+		height: 100vh;
+	}
+	.services__grid {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		max-height: 100rem;
+		& .item {
+			color: $brand-text;
+			width: 100%;
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: center;
+			align-items: center;
+			opacity: 0.8;
+			transition: all 0.3s ease-in-out;
+			align-self: flex-end;
+			height: 4rem;
+			max-height: 13rem;
+			&:hover {
+				flex-direction: column;
+			}
+			& h3 {
+				font-family: 'Eb Garamond', serif, sans-serif;
+				font-size: 1rem;
+				letter-spacing: 0.9px;
+			}
+			& svg {
+				font-size: 1.6rem;
+				margin: 0 0.5rem;
+			}
+			&:hover svg {
+				font-size: 2.2rem;
+			}
+			& ul {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				padding: 0;
+			}
+			&:hover h3,
+			&:hover svg,
+			&:hover ul {
+				margin: 0 0 0.5rem 0;
+			}
+			& ul li p {
+				font-size: 0.9rem;
+			}
+		}
+	}
+	.text__box {
+		& h1 {
+			text-align: center;
+			font-size: 2rem;
+			margin: 1rem;
+		}
+		& h2 {
+			font-size: 2rem;
+		}
+	}
 }
 
 @keyframes fadein {
-  0% {
-    opacity: 0;
-    font-size: 0;
-  }
-  100% {
-    opacity: 1;
-    font-size: 100%;
-  }
+	0% {
+		opacity: 0;
+		font-size: 0;
+	}
+	100% {
+		opacity: 1;
+		font-size: 100%;
+	}
 }
 
 @keyframes fadeinheading {
-  0% {
-    opacity: 0;
-  }
-  90% {
-    opacity: 0.8;
-  }
-  100% {
-    opacity: 1;
-  }
+	0% {
+		opacity: 0;
+	}
+	90% {
+		opacity: 0.8;
+	}
+	100% {
+		opacity: 1;
+	}
 }

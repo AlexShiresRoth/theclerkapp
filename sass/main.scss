@@ -1,29 +1,29 @@
-@import url("https://fonts.googleapis.com/css?family=EB+Garamond|Raleway|Tangerine&display=swap");
+@import url('https://fonts.googleapis.com/css?family=EB+Garamond|Cormorant+Garamond|Raleway|Tangerine&display=swap');
 
-@import "./variables";
+@import './variables';
 
 html,
 body {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  overflow-x: hidden;
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	overflow-x: hidden;
 }
 main {
-  min-height: 85vh;
-  background: $brand-blue;
-  scroll-snap-type: y mandatory;
+	min-height: 85vh;
+	background: $brand-blue;
+	scroll-snap-type: y mandatory;
 }
 footer {
-  min-height: 15vh;
-  background: darken($brand-blue, 5%);
+	min-height: 15vh;
+	background: darken($brand-blue, 5%);
 }
 a,
 h2,
 h3,
 p {
-  font-family: "Raleway", sans-serif;
+	font-family: 'EB Garamond', sans-serif;
 }
 h1 {
-  font-size: 4rem;
+	font-size: 4rem;
 }

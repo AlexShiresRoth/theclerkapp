@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=EB+Garamond|Raleway|Tangerine&display=swap");
+@import url("https://fonts.googleapis.com/css?family=EB+Garamond|Cormorant+Garamond|Raleway|Tangerine&display=swap");
 html,
 body {
   padding: 0;
@@ -19,7 +19,7 @@ a,
 h2,
 h3,
 p {
-  font-family: "Raleway", sans-serif; }
+  font-family: 'EB Garamond', sans-serif; }
 
 h1 {
   font-size: 4rem; }

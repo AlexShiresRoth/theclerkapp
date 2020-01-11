@@ -41,6 +41,12 @@ const ServicesMap = () => {
 			top: 0,
 			behavior: 'smooth',
 		});
+		setCurrentIndex(0);
+		if (serviceRef.current) {
+			serviceRef.current.scrollTop = 0;
+			animationRef = requestAnimationFrame(scrollServicesUp);
+		}
+		cancelAnimationFrame(animationRef);
 	};
 
 	const servicesMap = services.map((service, i) => {
@@ -76,6 +82,7 @@ const ServicesMap = () => {
 	useEffect(() => {
 		const observer = new IntersectionObserver(
 			([entry]) => {
+				console.log(entry);
 				if (entry.isIntersecting) {
 					setContainerStyle({
 						position: 'fixed',
@@ -88,11 +95,10 @@ const ServicesMap = () => {
 					});
 				}
 			},
-			{ rootMargin: '0px', threshold: 1 }
+			{ rootMargin: '0px', threshold: 0.9 }
 		);
-		if (serviceRef.current) {
-			observer.observe(serviceRef.current);
-		}
+		if (serviceRef.current) observer.observe(serviceRef.current);
+		else observer.unobserve(serviceRef.current);
 	}, []);
 	return (
 		<div className={servicesStyles.services__container} ref={serviceRef} style={{ ...containerStyle }}>

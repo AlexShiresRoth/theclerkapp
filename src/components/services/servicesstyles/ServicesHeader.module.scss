@@ -45,3 +45,57 @@
 		}
 	}
 }
+@media screen and (max-width: 1300px) {
+	.header {
+		& .title__container {
+			& h1 {
+				font-size: 4rem;
+
+				&::before {
+					content: '';
+					width: 7rem;
+					height: 0.2rem;
+					display: block;
+					background: $brand-accent;
+				}
+				&::after {
+					content: '';
+					width: 7rem;
+					height: 0.2rem;
+					display: block;
+					background: $brand-accent;
+				}
+			}
+			& p {
+				@include paragraph-secondary-med;
+			}
+		}
+	}
+}
+@media screen and (max-width: 700px) {
+	.header {
+		& .title__container {
+			& h1 {
+				font-size: 4rem;
+
+				&::before {
+					content: '';
+					width: 7rem;
+					height: 0.2rem;
+					display: block;
+					background: $brand-accent;
+				}
+				&::after {
+					content: '';
+					width: 7rem;
+					height: 0.2rem;
+					display: block;
+					background: $brand-accent;
+				}
+			}
+			& p {
+				@include paragraph-secondary-small;
+			}
+		}
+	}
+}

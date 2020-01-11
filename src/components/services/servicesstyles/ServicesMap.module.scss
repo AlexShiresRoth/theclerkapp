@@ -287,7 +287,7 @@
 	}
 }
 
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 1500px) {
 	.services__container {
 		& .service__container {
 			& .arrow__up {
@@ -330,14 +330,14 @@
 				}
 			}
 
-			&:nth-child(1) {
+			&:nth-child(2) {
 				scroll-snap-align: start;
 				position: relative;
 				z-index: 0;
 
 				& .img__overlay {
 					position: absolute;
-					background: rgba(177, 162, 150, 0.85);
+					background: rgba(177, 162, 150, 0.5);
 				}
 				& .service__heading {
 					background: lighten($brand-brown, 5%);
@@ -375,14 +375,14 @@
 					}
 				}
 			}
-			&:nth-child(2) {
+			&:nth-child(3) {
 				scroll-snap-align: start;
 				position: relative;
 				z-index: 0;
 
 				& .img__overlay {
 					position: absolute;
-					background: rgba(66, 95, 117, 0.85);
+					background: rgba(66, 95, 117, 0.5);
 				}
 				& .service__list {
 					order: 0;
@@ -418,14 +418,14 @@
 					}
 				}
 			}
-			&:nth-child(3) {
+			&:nth-child(4) {
 				scroll-snap-align: start;
 				position: relative;
 				z-index: 0;
 
 				& .img__overlay {
 					position: absolute;
-					background: rgba(115, 149, 174, 0.85);
+					background: rgba(115, 149, 174, 0.5);
 				}
 				& .service__heading {
 					background: lighten($brand-accent, 5%);
@@ -461,6 +461,252 @@
 						align-self: flex-end;
 					}
 				}
+			}
+		}
+	}
+}
+@media screen and (max-width: 1300px) {
+	.services__container {
+		& .service__container {
+			display: grid;
+			grid-template-columns: 1fr;
+			grid-template-rows: repeat(2, 1fr);
+			& .service__list {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				z-index: 2;
+				& p {
+					word-break: break-word;
+					font-size: 2rem;
+					align-self: center;
+				}
+			}
+			& .service__heading {
+				& h3 {
+					font-size: 2.5rem;
+				}
+				& svg {
+					font-size: 5rem;
+				}
+			}
+			& .arrow__up {
+				position: absolute;
+				top: 4rem;
+				left: 90%;
+				z-index: 5;
+				font-size: 4rem;
+				color: $brand-text;
+				opacity: 0.8;
+				margin: 0;
+			}
+			& .arrow__down {
+				left: 90%;
+				margin: 0;
+				font-size: 4rem;
+			}
+
+			&:nth-child(2) {
+				scroll-snap-align: start;
+				position: relative;
+				z-index: 0;
+
+				& .img__overlay {
+					position: absolute;
+					background: rgba(177, 162, 150, 0.5);
+				}
+				& .service__heading {
+					background: lighten($brand-brown, 5%);
+					box-shadow: 0 2px 2px darken($brand-brown, 5%);
+					width: 120%;
+					clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+					& h3 {
+						padding: 0.3rem;
+						transition: all 0.5s ease-in-out;
+						background-image: linear-gradient(
+							180deg,
+							transparent 30%,
+							transparent 30%,
+							rgba(115, 149, 174, 0.7) 30%
+						);
+						background-size: 100% 200%;
+						background-position: 0 0;
+
+						&:hover {
+							cursor: pointer;
+							background-image: linear-gradient(
+								180deg,
+								transparent 30%,
+								transparent 30%,
+								rgba(115, 149, 174, 0.7) 30%
+							);
+							background-position: 100% 100%;
+						}
+					}
+				}
+				& .service__list {
+					& p {
+						align-self: center;
+						z-index: 2;
+					}
+				}
+			}
+			&:nth-child(3) {
+				scroll-snap-align: start;
+				position: relative;
+				z-index: 0;
+
+				& .img__overlay {
+					position: absolute;
+					background: rgba(66, 95, 117, 0.5);
+				}
+				& .service__list {
+					order: 1;
+					& p {
+						align-self: center;
+					}
+				}
+				& .service__heading {
+					order: 0;
+					background: $brand-blue;
+					box-shadow: 0 2px 2px darken($brand-blue, 5%);
+					width: 140%;
+					clip-path: polygon(100% 0%, 100% 100%, 0% 100%, 0% 0%);
+					& h3 {
+						padding: 0.3rem;
+						transition: all 0.5s ease-in-out;
+						background-image: linear-gradient(
+							180deg,
+							transparent 30%,
+							transparent 30%,
+							rgba(177, 162, 150, 0.7) 30%
+						);
+						background-size: 100% 200%;
+						background-position: 0 0;
+
+						&:hover {
+							cursor: pointer;
+							background-image: linear-gradient(
+								180deg,
+								transparent 30%,
+								transparent 30%,
+								rgba(177, 162, 150, 0.7) 30%
+							);
+							background-position: 100% 100%;
+						}
+					}
+				}
+			}
+			&:nth-child(4) {
+				scroll-snap-align: start;
+				position: relative;
+				z-index: 0;
+
+				& .img__overlay {
+					position: absolute;
+					background: rgba(115, 149, 174, 0.5);
+				}
+				& .service__heading {
+					background: lighten($brand-accent, 5%);
+					box-shadow: 0 2px 2px darken($brand-accent, 5%);
+					width: 140%;
+					clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+					& h3 {
+						padding: 0.3rem;
+						transition: all 0.5s ease-in-out;
+						background-image: linear-gradient(
+							180deg,
+							transparent 30%,
+							transparent 30%,
+							rgba(66, 95, 117, 0.7) 30%
+						);
+						background-size: 100% 200%;
+						background-position: 0 0;
+
+						&:hover {
+							cursor: pointer;
+							background-image: linear-gradient(
+								180deg,
+								transparent 30%,
+								transparent 30%,
+								rgba(66, 95, 117, 0.7) 30%
+							);
+							background-position: 100% 100%;
+						}
+					}
+				}
+				& .service__list {
+					& p {
+						align-self: center;
+					}
+				}
+			}
+		}
+	}
+}
+@media screen and (max-width: 700px) {
+	.services__container {
+		& .close__button {
+			position: fixed;
+			top: 4rem;
+			left: 0;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			max-height: 3rem;
+			min-width: 3rem;
+			background: $brand-blue;
+			z-index: 999999999;
+			opacity: 1;
+			visibility: visible;
+			transition: all 0.4s ease-in-out;
+			& svg {
+				padding: 1rem;
+				color: $brand-text;
+				font-size: 2rem;
+				transition: all 0.3s ease-in-out;
+			}
+		}
+		& .service__container {
+			display: grid;
+			grid-template-columns: 1fr;
+			grid-template-rows: repeat(2, 1fr);
+			& .service__list {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: flex-start;
+				z-index: 2;
+				align-self: start;
+				& p {
+					word-break: break-word;
+					font-size: 1.5rem;
+					align-self: center;
+				}
+			}
+			& .service__heading {
+				justify-content: flex-end;
+				& h3 {
+					font-size: 2.3rem;
+				}
+				& svg {
+					font-size: 4.5rem;
+				}
+			}
+			& .arrow__up {
+				position: absolute;
+				top: 4rem;
+				left: 85%;
+				z-index: 5;
+				font-size: 4rem;
+				color: $brand-text;
+				opacity: 0.8;
+				margin: 0;
+			}
+			& .arrow__down {
+				left: 85%;
+				margin: 0;
+				font-size: 4rem;
 			}
 		}
 	}

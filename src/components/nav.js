@@ -44,15 +44,10 @@ class Nav extends React.Component {
 					<li>
 						<Link to="/services">Services</Link>
 					</li>
-					<li>
-						<Link to="/quiz/">Quiz</Link>
-					</li>
-					<li>
-						<Link to="/resources/">Resources</Link>
-					</li>
 				</ul>
 			</div>
 		);
+
 		const NavLink = props => (
 			<Link
 				{...props}
@@ -64,6 +59,18 @@ class Nav extends React.Component {
 					};
 				}}
 			/>
+		);
+		const ReservedNav = (
+			<>
+				<NavLink to="/quiz/">Quiz</NavLink>
+				<NavLink to="/resources/">Resources</NavLink>
+				<li>
+					<Link to="/quiz/">Quiz</Link>
+				</li>
+				<li>
+					<Link to="/resources/">Resources</Link>
+				</li>
+			</>
 		);
 		return this.state.isMobile ? (
 			<nav className={navStyles.nav}>
@@ -128,8 +135,6 @@ class Nav extends React.Component {
 					<NavLink to="/">Home</NavLink>
 					<NavLink to="/about/">About</NavLink>
 					<NavLink to="/services/">Services</NavLink>
-					<NavLink to="/quiz/">Quiz</NavLink>
-					<NavLink to="/resources/">Resources</NavLink>
 				</div>
 			</nav>
 		);

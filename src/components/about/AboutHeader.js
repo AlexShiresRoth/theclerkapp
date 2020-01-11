@@ -1,9 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import aboutStyles from './aboutstyles/AboutHeader.module.scss';
 import aboutContent from './AboutContent';
 import { convertToHtml } from '../reusablefuncs/convertToHtml';
-
+import LoadingSpinner from '../loader/LoadingSpinner';
 const AboutHeader = () => {
 	const aboutImg = (
 		<figure>
@@ -16,7 +15,14 @@ const AboutHeader = () => {
 			</figcaption>
 		</figure>
 	);
-	const aboutText = <div className={aboutStyles.about__text}>{convertToHtml(aboutContent())}</div>;
+
+	const aboutcontent = aboutContent();
+	console.log(typeof aboutcontent);
+	const aboutText = (
+		<div className={aboutStyles.about__text}>
+			{typeof aboutcontent === 'boolean' ? <LoadingSpinner /> : convertToHtml(aboutcontent)}
+		</div>
+	);
 
 	return (
 		<header className={aboutStyles.header}>
@@ -38,7 +44,5 @@ const AboutHeader = () => {
 		</header>
 	);
 };
-
-AboutHeader.propTypes = {};
 
 export default AboutHeader;

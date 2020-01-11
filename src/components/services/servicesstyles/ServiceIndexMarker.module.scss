@@ -12,6 +12,7 @@
 	width: 3rem;
 	background: $brand-blue;
 	transition: all 0.4s ease-in-out;
+	box-shadow: 0 4px 4px $brand-dark-blue;
 	& .index__marker {
 		svg {
 			width: 1rem;
@@ -42,6 +43,57 @@
 			stroke-dashoffset: 0;
 			& circle {
 				fill-opacity: 1;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 700px) {
+	.index__box {
+		position: fixed;
+		top: 95%;
+		bottom: 0;
+		left: 35%;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+		align-items: center;
+		min-height: 3rem;
+		width: 10rem;
+		background: $brand-blue;
+		transition: all 0.4s ease-in-out;
+		box-shadow: 0 4px 4px $brand-dark-blue;
+		& .index__marker {
+			svg {
+				width: 1rem;
+				overflow: visible;
+				stroke-dasharray: 50;
+				stroke-dashoffset: 100;
+				transition: all 0.4s ease-in-out;
+				stroke: lighten($brand-accent, 10%);
+				fill: lighten($brand-accent, 10%);
+				& circle {
+					width: 2rem;
+					transition: all 1s ease-in-out;
+				}
+			}
+		}
+		& .current {
+			svg {
+				width: 1rem;
+				overflow: visible;
+				stroke-dasharray: 50;
+				stroke-dashoffset: 100;
+				transition: all 0.4s ease-in-out;
+				stroke: lighten($brand-accent, 10%);
+				fill: lighten($brand-accent, 10%);
+				fill-opacity: 1;
+				cursor: pointer;
+				stroke-dasharray: 0;
+				stroke-dashoffset: 0;
+				& circle {
+					fill-opacity: 1;
+				}
 			}
 		}
 	}

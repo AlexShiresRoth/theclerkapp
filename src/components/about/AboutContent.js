@@ -15,8 +15,5 @@ export default () => {
 	`;
 	const { data, loading } = useQuery(FETCH_ABOUT_CONTENT);
 
-	if (data) {
-		console.log(data.allPages.edges[0].node.aboutcontent);
-		return data.allPages.edges[0].node.aboutcontent;
-	}
+	return loading ? loading : data.allPages.edges[0].node.aboutcontent;
 };

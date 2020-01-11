@@ -1,0 +1,22 @@
+.spinner {
+	width: 10rem;
+	background: lighten(#7395ae, 15%);
+	stroke-dasharray: 100;
+	animation: spin 0.5s linear forwards;
+	fill-opacity: 0;
+	fill: transparent;
+}
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+	50% {
+		transform: rotate(300deg);
+	}
+	90% {
+		transform: rotate(360deg);
+	}
+	100% {
+		transform: rotate(0deg);
+	}
+}

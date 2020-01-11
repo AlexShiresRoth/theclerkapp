@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import spinnerStyles from './LoadingSpinner.module.scss';
 const LoadingSpinner = props => {
 	const spinner = (
@@ -9,7 +8,5 @@ const LoadingSpinner = props => {
 	);
 	return <div className={spinnerStyles.spinner}>{spinner}</div>;
 };
-
-LoadingSpinner.propTypes = {};
 
 export default LoadingSpinner;

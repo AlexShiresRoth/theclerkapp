@@ -1,54 +1,11 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { services } from './servicesArray';
-import { MdKeyboardArrowDown, MdKeyboardArrowUp, MdClear } from 'react-icons/md';
 import { servicesImages } from './servicesImages';
+import { MdKeyboardArrowDown, MdKeyboardArrowUp } from 'react-icons/md';
 import servicesStyles from './servicesstyles/ServicesMap.module.scss';
-import ServicesIndexMarker from './ServiceIndexMarker';
-//TODO debug scroll speed behavior
 
-const ServicesMap = () => {
-	const [containerStyle, setContainerStyle] = useState({
-		position: '',
-		top: '0px',
-	});
-	const [currentIndex, setCurrentIndex] = useState(0);
-
-	const serviceRef = useRef();
-	let animationRef = useRef();
-
-	const scrollServicesUp = () => {
-		setCurrentIndex(prevIndex => (prevIndex -= 1));
-		if (serviceRef.current) {
-			serviceRef.current.scrollTop = serviceRef.current.scrollTop -= serviceRef.current.getBoundingClientRect().height;
-			animationRef = requestAnimationFrame(scrollServicesUp);
-		}
-		cancelAnimationFrame(animationRef);
-	};
-	const scrollServicesDown = () => {
-		setCurrentIndex(prevIndex => (prevIndex += 1));
-		if (serviceRef.current) {
-			serviceRef.current.scrollTop = serviceRef.current.scrollTop += serviceRef.current.getBoundingClientRect().height;
-			animationRef = requestAnimationFrame(scrollServicesDown);
-		}
-		cancelAnimationFrame(animationRef);
-	};
-	const breakFromFixedPosition = e => {
-		setContainerStyle({
-			position: '',
-			top: '0',
-		});
-		window.scrollTo({
-			top: 0,
-			behavior: 'smooth',
-		});
-		setCurrentIndex(0);
-		if (serviceRef.current) {
-			serviceRef.current.scrollTop = 0;
-			animationRef = requestAnimationFrame(scrollServicesUp);
-		}
-		cancelAnimationFrame(animationRef);
-	};
-
+const ServicesMap = ({ scrollServicesDown, scrollServicesUp, currentIndex }) => {
 	const servicesMap = services.map((service, i) => {
 		return (
 			<div
@@ -68,7 +25,13 @@ const ServicesMap = () => {
 					{service.icon}
 					<h3>{service.service}</h3>
 				</div>
-				<div className={servicesStyles.service__list}>
+				<div
+					className={
+						currentIndex === i
+							? `${servicesStyles.current__slide} ${servicesStyles.service__list}`
+							: `${servicesStyles.service__list}`
+					}
+				>
 					{service.list.map(item => (
 						<p>{item}</p>
 					))}
@@ -79,42 +42,9 @@ const ServicesMap = () => {
 			</div>
 		);
 	});
-	useEffect(() => {
-		const observer = new IntersectionObserver(
-			([entry]) => {
-				console.log(entry);
-				if (entry.isIntersecting) {
-					setContainerStyle({
-						position: 'fixed',
-						top: '0rem',
-					});
-				} else {
-					setContainerStyle({
-						position: '',
-						top: '',
-					});
-				}
-			},
-			{ rootMargin: '0px', threshold: 0.9 }
-		);
-		if (serviceRef.current) observer.observe(serviceRef.current);
-		else observer.unobserve(serviceRef.current);
-	}, []);
-	return (
-		<div className={servicesStyles.services__container} ref={serviceRef} style={{ ...containerStyle }}>
-			{containerStyle.position === 'fixed' ? (
-				<div className={servicesStyles.close__button} onClick={e => breakFromFixedPosition(e)}>
-					<MdClear />
-				</div>
-			) : (
-				<div className={servicesStyles.close__button__hidden}></div>
-			)}
-			{servicesMap}
-			{containerStyle.position === 'fixed' ? (
-				<ServicesIndexMarker index={currentIndex} services={services} />
-			) : null}
-		</div>
-	);
+	return <>{servicesMap}</>;
 };
+
+ServicesMap.propTypes = {};
 
 export default ServicesMap;

@@ -11,14 +11,14 @@
 	font-size: 1.6rem;
 	font-family: 'EB Garamond', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva,
 		Verdana, sans-serif;
-	max-width: 50vw;
+	max-width: 60vw;
 	text-align: center;
 }
 @mixin paragraph-secondary-small {
 	color: $brand-text;
-	font-size: 1.2rem;
+	font-size: 1.6rem;
 	font-family: 'EB Garamond', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva,
 		Verdana, sans-serif;
-	max-width: 50vw;
+	max-width: 80vw;
 	text-align: center;
 }

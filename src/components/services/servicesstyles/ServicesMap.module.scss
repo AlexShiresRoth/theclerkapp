@@ -54,6 +54,7 @@
 		justify-content: center;
 		align-items: center;
 		z-index: 1;
+		transition: all 1s ease-in-out;
 		& h3 {
 			font-family: 'EB Garamond', sans-serif, serif;
 			font-weight: 300;
@@ -83,6 +84,7 @@
 			background: rgba(177, 162, 150, 0.55);
 		}
 		& .service__heading {
+			justify-self: start;
 			background: lighten($brand-brown, 5%);
 			box-shadow: 0 2px 2px darken($brand-brown, 5%);
 			width: 120%;
@@ -145,6 +147,9 @@
 		position: relative;
 		z-index: 0;
 
+		& .service__heading {
+			justify-self: end;
+		}
 		& .img__overlay {
 			position: absolute;
 			background: rgba(66, 95, 117, 0.55);
@@ -218,6 +223,7 @@
 			background: rgba(115, 149, 174, 0.55);
 		}
 		& .service__heading {
+			justify-self: start;
 			background: lighten($brand-accent, 5%);
 			box-shadow: 0 2px 2px darken($brand-accent, 5%);
 			width: 120%;
@@ -669,6 +675,9 @@
 			font-size: 4rem;
 		}
 		&:nth-child(2) {
+			& .service__heading {
+				justify-self: center;
+			}
 			& .service__list {
 				& p {
 					position: relative;
@@ -700,6 +709,9 @@
 			}
 		}
 		&:nth-child(3) {
+			& .service__heading {
+				justify-self: center;
+			}
 			& .service__list {
 				& p {
 					position: relative;
@@ -730,6 +742,9 @@
 			}
 		}
 		&:nth-child(4) {
+			& .service__heading {
+				justify-self: center;
+			}
 			& .service__list {
 				& p {
 					position: relative;

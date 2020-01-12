@@ -21,9 +21,29 @@ const ServicesMap = ({ scrollServicesDown, scrollServicesUp, currentIndex }) => 
 					<MdKeyboardArrowUp className={servicesStyles.arrow__up} onClick={() => scrollServicesUp(i)} />
 				) : null}
 				<div className={servicesStyles.img__overlay}></div>
-				<div className={servicesStyles.service__heading}>
-					{service.icon}
-					<h3>{service.service}</h3>
+
+				<div
+					className={servicesStyles.service__heading}
+					style={currentIndex === i ? { width: '120%', opacity: '1' } : { width: '0px', opacity: '0' }}
+				>
+					<div
+						style={
+							currentIndex === i
+								? { fontSize: '', opacity: '1', transition: 'all 1s ease' }
+								: { fontSize: '0px', opacity: '0', transition: 'all 1s ease' }
+						}
+					>
+						{service.icon}
+					</div>
+					<h3
+						style={
+							currentIndex === i
+								? { fontSize: '', opacity: '1', transition: 'all 1s ease' }
+								: { fontSize: '0px', opacity: '0', transition: 'all 1s ease' }
+						}
+					>
+						{service.service}
+					</h3>
 				</div>
 				<div
 					className={
@@ -45,6 +65,10 @@ const ServicesMap = ({ scrollServicesDown, scrollServicesUp, currentIndex }) => 
 	return <>{servicesMap}</>;
 };
 
-ServicesMap.propTypes = {};
+ServicesMap.propTypes = {
+	scrollServicesUp: PropTypes.func.isRequired,
+	scrollServicesDown: PropTypes.func.isRequired,
+	currentIndex: PropTypes.number.isRequired,
+};
 
 export default ServicesMap;

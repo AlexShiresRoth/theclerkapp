@@ -15,15 +15,15 @@ const ServicesController = () => {
 	const serviceRef = useRef();
 	const animationRef = useRef();
 
-	const scrollServicesUp = () => {
+	const scrollServicesUp = (e, i) => {
+		setCurrentIndex(i - 1);
 		if (serviceRef.current) {
-			setCurrentIndex(prevIndex => (prevIndex -= 1));
 			serviceRef.current.scrollTop = serviceRef.current.scrollTop -= serviceRef.current.getBoundingClientRect().height;
 		}
 	};
-	const scrollServicesDown = () => {
+	const scrollServicesDown = (e, i) => {
+		setCurrentIndex(i + 1);
 		if (serviceRef.current) {
-			setCurrentIndex(prevIndex => (prevIndex += 1));
 			serviceRef.current.scrollTop = serviceRef.current.scrollTop += serviceRef.current.getBoundingClientRect().height;
 		}
 	};
@@ -31,7 +31,7 @@ const ServicesController = () => {
 	const breakFromFixedPosition = e => {
 		setContainerStyle({
 			position: '',
-			top: '0',
+			top: '0rem',
 		});
 		//restart index on exit
 		setCurrentIndex(0);
@@ -72,9 +72,11 @@ const ServicesController = () => {
 
 		//resize breaks current scroll position of slides
 		window.addEventListener('resize', handleResize);
-		return () => window.removeEventListener('resize', handleResize);
+		return () => {
+			window.removeEventListener('resize', handleResize);
+		};
 	}, []);
-
+	console.log(currentIndex);
 	return (
 		<div className={servicesStyles.services__container} ref={serviceRef} style={{ ...containerStyle }}>
 			{containerStyle.position === 'fixed' ? (

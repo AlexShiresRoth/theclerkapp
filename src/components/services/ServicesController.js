@@ -19,17 +19,17 @@ const ServicesController = () => {
     setCurrentIndex(prevIndex => (prevIndex -= 1));
     if (serviceRef.current) {
       serviceRef.current.scrollTop = serviceRef.current.scrollTop -= serviceRef.current.getBoundingClientRect().height;
-      animationRef.current = requestAnimationFrame(scrollServicesUp);
+      animationRef = requestAnimationFrame(scrollServicesUp);
     }
-    cancelAnimationFrame(animationRef.current);
+    cancelAnimationFrame(animationRef);
   };
   const scrollServicesDown = () => {
     setCurrentIndex(prevIndex => (prevIndex += 1));
     if (serviceRef.current) {
       serviceRef.current.scrollTop = serviceRef.current.scrollTop += serviceRef.current.getBoundingClientRect().height;
-      animationRef.current = requestAnimationFrame(scrollServicesDown);
+      animationRef = requestAnimationFrame(scrollServicesDown);
     }
-    cancelAnimationFrame(animationRef.current);
+    cancelAnimationFrame(animationRef);
   };
 
   const breakFromFixedPosition = e => {
@@ -44,9 +44,9 @@ const ServicesController = () => {
     setCurrentIndex(null);
     if (serviceRef.current) {
       serviceRef.current.scrollTop = 0;
-      animationRef.current = requestAnimationFrame(breakFromFixedPosition);
+      animationRef = requestAnimationFrame(breakFromFixedPosition);
     }
-    cancelAnimationFrame(animationRef.current);
+    cancelAnimationFrame(animationRef);
   };
 
   //On resize move to top of window and 0 index so the slides do not break
@@ -73,10 +73,11 @@ const ServicesController = () => {
     if (serviceRef.current) observer.observe(serviceRef.current);
     else observer.unobserve(serviceRef.current);
 
+    console.log(animationRef);
     //resize breaks current scroll position of slides
     window.addEventListener("resize", handleResize);
     return () => {
-      cancelAnimationFrame(animationRef.current);
+      cancelAnimationFrame(animationRef);
       window.removeEventListener("resize", handleResize);
     };
   }, []);

@@ -19,17 +19,17 @@ const ServicesController = () => {
     setCurrentIndex(prevIndex => (prevIndex -= 1));
     if (serviceRef.current) {
       serviceRef.current.scrollTop = serviceRef.current.scrollTop -= serviceRef.current.getBoundingClientRect().height;
-      animationRef = requestAnimationFrame(scrollServicesUp);
     }
-    cancelAnimationFrame(animationRef);
+    animationRef.current = requestAnimationFrame(scrollServicesUp);
+    cancelAnimationFrame(animationRef.current);
   };
   const scrollServicesDown = () => {
     setCurrentIndex(prevIndex => (prevIndex += 1));
     if (serviceRef.current) {
       serviceRef.current.scrollTop = serviceRef.current.scrollTop += serviceRef.current.getBoundingClientRect().height;
-      animationRef = requestAnimationFrame(scrollServicesDown);
     }
-    cancelAnimationFrame(animationRef);
+    animationRef.current = requestAnimationFrame(scrollServicesDown);
+    cancelAnimationFrame(animationRef.current);
   };
 
   const breakFromFixedPosition = e => {
@@ -37,16 +37,19 @@ const ServicesController = () => {
       position: "",
       top: "0"
     });
+
     window.scrollTo({
       top: 0,
       behavior: "smooth"
     });
+
     setCurrentIndex(null);
+
     if (serviceRef.current) {
       serviceRef.current.scrollTop = 0;
-      animationRef = requestAnimationFrame(breakFromFixedPosition);
     }
-    cancelAnimationFrame(animationRef);
+    animationRef.current = requestAnimationFrame(breakFromFixedPosition);
+    cancelAnimationFrame(animationRef.current);
   };
 
   //On resize move to top of window and 0 index so the slides do not break
@@ -73,13 +76,11 @@ const ServicesController = () => {
     if (serviceRef.current) observer.observe(serviceRef.current);
     else observer.unobserve(serviceRef.current);
 
-    console.log(animationRef);
+    cancelAnimationFrame(animationRef.current);
+
     //resize breaks current scroll position of slides
     window.addEventListener("resize", handleResize);
-    return () => {
-      cancelAnimationFrame(animationRef);
-      window.removeEventListener("resize", handleResize);
-    };
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return (

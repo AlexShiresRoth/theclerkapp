@@ -13,23 +13,21 @@ const ServicesController = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const serviceRef = useRef();
-  let animationRef = useRef();
+  const animationRef = useRef();
 
   const scrollServicesUp = () => {
-    setCurrentIndex(prevIndex => (prevIndex -= 1));
     if (serviceRef.current) {
+      setCurrentIndex(prevIndex => (prevIndex -= 1));
       serviceRef.current.scrollTop = serviceRef.current.scrollTop -= serviceRef.current.getBoundingClientRect().height;
+      animationRef.current = requestAnimationFrame(scrollServicesUp);
     }
-    animationRef.current = requestAnimationFrame(scrollServicesUp);
-    cancelAnimationFrame(animationRef.current);
   };
   const scrollServicesDown = () => {
-    setCurrentIndex(prevIndex => (prevIndex += 1));
     if (serviceRef.current) {
+      setCurrentIndex(prevIndex => (prevIndex += 1));
       serviceRef.current.scrollTop = serviceRef.current.scrollTop += serviceRef.current.getBoundingClientRect().height;
+      animationRef.current = requestAnimationFrame(scrollServicesDown);
     }
-    animationRef.current = requestAnimationFrame(scrollServicesDown);
-    cancelAnimationFrame(animationRef.current);
   };
 
   const breakFromFixedPosition = e => {
@@ -37,14 +35,12 @@ const ServicesController = () => {
       position: "",
       top: "0"
     });
-
+    //restart index on exit
+    setCurrentIndex(0);
     window.scrollTo({
       top: 0,
       behavior: "smooth"
     });
-
-    //restart index on exit
-    setCurrentIndex(0);
 
     if (serviceRef.current) {
       serviceRef.current.scrollTop = 0;

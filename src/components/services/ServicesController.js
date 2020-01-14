@@ -74,6 +74,7 @@ const ServicesController = () => {
       },
       { rootMargin: "0px", threshold: 0.9 }
     );
+
     if (serviceRef.current) observer.observe(serviceRef.current);
     else observer.unobserve(serviceRef.current);
 
@@ -93,6 +94,7 @@ const ServicesController = () => {
       {containerStyle.position === "fixed" ? (
         <div
           className={servicesStyles.close__button}
+          onTouchStart={e => breakFromFixedPosition(e)}
           onClick={e => breakFromFixedPosition(e)}
         >
           <MdClear />

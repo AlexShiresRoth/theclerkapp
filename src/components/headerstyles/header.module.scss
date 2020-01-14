@@ -149,6 +149,33 @@
 	.header {
 		max-height: 100vh;
 		height: 100vh;
+		& .text__box{
+			& h1 {
+				font-size: 3.5rem;
+			}
+			& h2 {
+				font-size: 3rem;
+			}
+		}
+		& .divider {
+			opacity: 0;
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+			width: 60vw;
+			color: $brand-brown;
+			animation: fadeinheading 1.5s linear forwards;
+			& svg {
+				font-size: 3rem;
+				margin: 0 0.5rem;
+			}
+			& span {
+				height: 0.2rem;
+				width: 30vw;
+				background: $brand-accent;
+			}
+		}
 	}
 	.services__grid {
 		display: flex;

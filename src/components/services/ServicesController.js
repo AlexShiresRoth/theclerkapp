@@ -10,7 +10,7 @@ const ServicesController = () => {
     position: "",
     top: "0px"
   });
-  const [currentIndex, setCurrentIndex] = useState(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const serviceRef = useRef();
   let animationRef = useRef();
@@ -43,7 +43,8 @@ const ServicesController = () => {
       behavior: "smooth"
     });
 
-    setCurrentIndex(null);
+    //restart index on exit
+    setCurrentIndex(0);
 
     if (serviceRef.current) {
       serviceRef.current.scrollTop = 0;

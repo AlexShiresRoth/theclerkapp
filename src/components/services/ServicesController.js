@@ -76,7 +76,6 @@ const ServicesController = () => {
 			window.removeEventListener('resize', handleResize);
 		};
 	}, []);
-	console.log(currentIndex);
 	return (
 		<div className={servicesStyles.services__container} ref={serviceRef} style={{ ...containerStyle }}>
 			{containerStyle.position === 'fixed' ? (

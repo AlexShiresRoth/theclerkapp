@@ -1,99 +1,112 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { services } from './servicesArray';
-import { MdClear } from 'react-icons/md';
-import servicesStyles from './servicesstyles/ServicesController.module.scss';
-import ServicesIndexMarker from './ServiceIndexMarker';
-import ServicesMap from './ServicesMap';
+import React, { useEffect, useRef, useState } from "react";
+import { services } from "./servicesArray";
+import { MdClear } from "react-icons/md";
+import servicesStyles from "./servicesstyles/ServicesController.module.scss";
+import ServicesIndexMarker from "./ServiceIndexMarker";
+import ServicesMap from "./ServicesMap";
 
 const ServicesController = () => {
-	const [containerStyle, setContainerStyle] = useState({
-		position: '',
-		top: '0px',
-	});
-	const [currentIndex, setCurrentIndex] = useState(null);
+  const [containerStyle, setContainerStyle] = useState({
+    position: "",
+    top: "0px"
+  });
+  const [currentIndex, setCurrentIndex] = useState(null);
 
-	const serviceRef = useRef();
-	let animationRef = useRef();
+  const serviceRef = useRef();
+  let animationRef = useRef();
 
-	const scrollServicesUp = () => {
-		setCurrentIndex(prevIndex => (prevIndex -= 1));
-		if (serviceRef.current) {
-			serviceRef.current.scrollTop = serviceRef.current.scrollTop -= serviceRef.current.getBoundingClientRect().height;
-			animationRef = requestAnimationFrame(scrollServicesUp);
-		}
-		cancelAnimationFrame(animationRef);
-	};
-	const scrollServicesDown = () => {
-		setCurrentIndex(prevIndex => (prevIndex += 1));
-		if (serviceRef.current) {
-			serviceRef.current.scrollTop = serviceRef.current.scrollTop += serviceRef.current.getBoundingClientRect().height;
-			animationRef = requestAnimationFrame(scrollServicesDown);
-		}
-		cancelAnimationFrame(animationRef);
-	};
-	const breakFromFixedPosition = e => {
-		setContainerStyle({
-			position: '',
-			top: '0',
-		});
-		window.scrollTo({
-			top: 0,
-			behavior: 'smooth',
-		});
-		setCurrentIndex(null);
-		if (serviceRef.current) {
-			serviceRef.current.scrollTop = 0;
-			animationRef = requestAnimationFrame(scrollServicesUp);
-		}
-		cancelAnimationFrame(animationRef);
-	};
-	const handleResize = () => breakFromFixedPosition();
+  const scrollServicesUp = () => {
+    setCurrentIndex(prevIndex => (prevIndex -= 1));
+    if (serviceRef.current) {
+      serviceRef.current.scrollTop = serviceRef.current.scrollTop -= serviceRef.current.getBoundingClientRect().height;
+      animationRef.current = requestAnimationFrame(scrollServicesUp);
+    }
+    cancelAnimationFrame(animationRef.current);
+  };
+  const scrollServicesDown = () => {
+    setCurrentIndex(prevIndex => (prevIndex += 1));
+    if (serviceRef.current) {
+      serviceRef.current.scrollTop = serviceRef.current.scrollTop += serviceRef.current.getBoundingClientRect().height;
+      animationRef.current = requestAnimationFrame(scrollServicesDown);
+    }
+    cancelAnimationFrame(animationRef.current);
+  };
 
-	useEffect(() => {
-		const observer = new IntersectionObserver(
-			([entry]) => {
-				if (entry.isIntersecting) {
-					setCurrentIndex(0);
-					setContainerStyle({
-						position: 'fixed',
-						top: '0rem',
-					});
-				} else {
-					setContainerStyle({
-						position: '',
-						top: '',
-					});
-				}
-			},
-			{ rootMargin: '0px', threshold: 0.9 }
-		);
-		if (serviceRef.current) observer.observe(serviceRef.current);
-		else observer.unobserve(serviceRef.current);
+  const breakFromFixedPosition = e => {
+    setContainerStyle({
+      position: "",
+      top: "0"
+    });
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+    setCurrentIndex(null);
+    if (serviceRef.current) {
+      serviceRef.current.scrollTop = 0;
+      animationRef.current = requestAnimationFrame(breakFromFixedPosition);
+    }
+    cancelAnimationFrame(animationRef.current);
+  };
 
-		//resize breaks current scroll position of slides
-		window.addEventListener('resize', handleResize);
-		return () => window.removeEventListener('resize', handleResize);
-	}, []);
+  //On resize move to top of window and 0 index so the slides do not break
+  const handleResize = () => breakFromFixedPosition();
 
-	return (
-		<div className={servicesStyles.services__container} ref={serviceRef} style={{ ...containerStyle }}>
-			{containerStyle.position === 'fixed' ? (
-				<div className={servicesStyles.close__button} onClick={e => breakFromFixedPosition(e)}>
-					<MdClear />
-				</div>
-			) : (
-				<div className={servicesStyles.close__button__hidden}></div>
-			)}
-			<ServicesMap
-				scrollServicesUp={scrollServicesUp}
-				scrollServicesDown={scrollServicesDown}
-				currentIndex={currentIndex}
-			/>
-			{containerStyle.position === 'fixed' ? (
-				<ServicesIndexMarker index={currentIndex} services={services} />
-			) : null}
-		</div>
-	);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setCurrentIndex(0);
+          setContainerStyle({
+            position: "fixed",
+            top: "0rem"
+          });
+        } else {
+          setContainerStyle({
+            position: "",
+            top: ""
+          });
+        }
+      },
+      { rootMargin: "0px", threshold: 0.9 }
+    );
+    if (serviceRef.current) observer.observe(serviceRef.current);
+    else observer.unobserve(serviceRef.current);
+
+    //resize breaks current scroll position of slides
+    window.addEventListener("resize", handleResize);
+    return () => {
+      cancelAnimationFrame(animationRef.current);
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  return (
+    <div
+      className={servicesStyles.services__container}
+      ref={serviceRef}
+      style={{ ...containerStyle }}
+    >
+      {containerStyle.position === "fixed" ? (
+        <div
+          className={servicesStyles.close__button}
+          onClick={e => breakFromFixedPosition(e)}
+        >
+          <MdClear />
+        </div>
+      ) : (
+        <div className={servicesStyles.close__button__hidden}></div>
+      )}
+      <ServicesMap
+        scrollServicesUp={scrollServicesUp}
+        scrollServicesDown={scrollServicesDown}
+        currentIndex={currentIndex}
+      />
+      {containerStyle.position === "fixed" ? (
+        <ServicesIndexMarker index={currentIndex} services={services} />
+      ) : null}
+    </div>
+  );
 };
 
 export default ServicesController;

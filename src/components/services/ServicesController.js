@@ -73,13 +73,10 @@ const ServicesController = () => {
 		//resize breaks current scroll position of slides
 		window.addEventListener('resize', handleResize);
 		return () => {
-			serviceRef.current.removeEventListener('scroll', _throttle(scrollServicesDown), 1000);
-			serviceRef.current.removeEventListener('scroll', _throttle(scrollServicesUp), 1000);
-			window.removeEventListener('scroll', _throttle(breakFromFixedPosition), 1000);
+			window.removeEventListener('scroll', breakFromFixedPosition);
 			window.removeEventListener('resize', handleResize);
 		};
 	}, []);
-	console.log(window.scroll);
 	return (
 		<div className={servicesStyles.services__container} ref={serviceRef} style={{ ...containerStyle }}>
 			{containerStyle.position === 'fixed' ? (

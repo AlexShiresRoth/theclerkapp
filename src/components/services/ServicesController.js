@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { services } from "./servicesArray";
 import { MdClear } from "react-icons/md";
+import { _throttle } from "lodash";
 import servicesStyles from "./servicesstyles/ServicesController.module.scss";
 import ServicesIndexMarker from "./ServiceIndexMarker";
 import ServicesMap from "./ServicesMap";
@@ -72,12 +73,25 @@ const ServicesController = () => {
     //resize breaks current scroll position of slides
     window.addEventListener("resize", handleResize);
     return () => {
-      serviceRef.current.removeEventListener("scroll", scrollServicesDown);
-      serviceRef.current.removeEventListener("scroll", scrollServicesUp);
-      window.removeEventListener("scroll", breakFromFixedPosition);
+      serviceRef.current.removeEventListener(
+        "scroll",
+        _throttle(scrollServicesDown),
+        1000
+      );
+      serviceRef.current.removeEventListener(
+        "scroll",
+        _throttle(scrollServicesUp),
+        1000
+      );
+      window.removeEventListener(
+        "scroll",
+        _throttle(breakFromFixedPosition),
+        1000
+      );
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+  console.log(window.scroll);
   return (
     <div
       className={servicesStyles.services__container}

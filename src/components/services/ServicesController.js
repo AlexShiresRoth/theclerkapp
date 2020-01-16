@@ -13,7 +13,6 @@ const ServicesController = () => {
 	const [currentIndex, setCurrentIndex] = useState(0);
 
 	const serviceRef = useRef();
-	const animationRef = useRef();
 
 	const scrollServicesUp = (e, i) => {
 		setCurrentIndex(i - 1);

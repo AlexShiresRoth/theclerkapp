@@ -28,7 +28,6 @@ const ServicesMap = ({
         {i > 0 && i <= services.length - 1 ? (
           <button
             className={servicesStyles.arrow__up}
-            onTouchStart={e => _throttle(scrollServicesUp(e, i), 1000)}
             onClick={e => _throttle(scrollServicesUp(e, i), 1000)}
           >
             <MdKeyboardArrowUp />
@@ -77,7 +76,6 @@ const ServicesMap = ({
         {i >= 0 && i < services.length - 1 ? (
           <button
             className={servicesStyles.arrow__down}
-            onTouchStart={e => _throttle(scrollServicesDown(e, i), 1000)}
             onClick={e => _throttle(scrollServicesDown(e, i), 1000)}
           >
             <MdKeyboardArrowDown />

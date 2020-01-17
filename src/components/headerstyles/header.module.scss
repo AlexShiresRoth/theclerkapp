@@ -232,7 +232,6 @@
 	.header {
 		max-height: 100vh;
 		height: 100vh;
-		justify-content: flex-start;
 		& .header__grid {
 			display: grid;
 			grid-template-columns: 1fr;
@@ -240,7 +239,6 @@
 			justify-items: center;
 			align-content: flex-start;
 			gap: 0.5rem;
-			margin-top: 4rem;
 		}
 		& .text__box__left {
 			& h1 {
@@ -262,7 +260,7 @@
 			flex-direction: row;
 			justify-content: center;
 			align-items: center;
-			width: 90vw;
+			width: 80vw;
 			color: $brand-brown;
 			animation: fadeinheading 1.5s linear forwards;
 			& svg {
@@ -271,11 +269,13 @@
 			}
 			& span {
 				height: 0.2rem;
-				width: 45vw;
+				width: 35vw;
 				background: $brand-accent;
 			}
 		}
 		& .text__box__right {
+			visibility: hidden;
+			display: none;
 			& .button__container {
 				flex-direction: row;
 				flex-wrap: wrap;

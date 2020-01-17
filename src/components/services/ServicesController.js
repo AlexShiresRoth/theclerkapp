@@ -54,7 +54,7 @@ const ServicesController = () => {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
+        if (entry.intersectionRatio >= 0.5) {
           setCurrentIndex(0);
           setContainerStyle({
             position: "fixed",

@@ -1,8 +1,7 @@
 import React from 'react';
 import headerStyles from './headerstyles/header.module.scss';
-import { FiVideo, FiUsers } from 'react-icons/fi';
+import { headerSvg, headerWavSvg, virtualSvg, videoSvg, inPersonSvg } from './headerstyles/headerSvg';
 import { FaBookOpen } from 'react-icons/fa';
-import { TiDeviceLaptop } from 'react-icons/ti';
 import { MdDoneAll } from 'react-icons/md';
 
 class Header extends React.Component {
@@ -83,6 +82,8 @@ class Header extends React.Component {
 						<span></span>
 					</div>
 					<div className={headerStyles.text__box__right}>
+						{headerSvg}
+						{headerWavSvg}
 						<div className={headerStyles.button__container}>
 							<button>Contact</button>
 							<button>Resources</button>
@@ -95,7 +96,7 @@ class Header extends React.Component {
 						onMouseOver={() => this.setState({ inperson: true })}
 						onMouseLeave={() => this.setState({ inperson: false })}
 					>
-						<FiUsers />
+						{inPersonSvg}
 						<h3>In Person Tutoring</h3>
 						{this.state.inperson ? inPersonHover : null}
 					</div>
@@ -104,7 +105,7 @@ class Header extends React.Component {
 						onMouseOver={() => this.setState({ virtual: true })}
 						onMouseLeave={() => this.setState({ virtual: false })}
 					>
-						<TiDeviceLaptop />
+						{virtualSvg}
 						<h3>Virtual Tutoring</h3>
 						{this.state.virtual ? virtualHover : null}
 					</div>
@@ -113,7 +114,7 @@ class Header extends React.Component {
 						onMouseOver={() => this.setState({ video: true })}
 						onMouseLeave={() => this.setState({ video: false })}
 					>
-						<FiVideo />
+						{videoSvg}
 						<h3>Video Conference</h3>
 						{this.state.video ? videoHover : null}
 					</div>

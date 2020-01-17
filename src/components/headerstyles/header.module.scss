@@ -10,7 +10,7 @@
 	align-items: center;
 	background-color: #557a95;
 	position: relative;
-
+	overflow: hidden;
 	& .header__grid {
 		display: grid;
 		grid-template-columns: repeat(3, auto);
@@ -28,7 +28,7 @@
 			color: $brand-text;
 			opacity: 0;
 			animation: fadeinheading 1s linear forwards;
-			font-size: 5rem;
+			font-size: 5vw;
 			margin: 1rem 0;
 			&::after {
 				content: '';
@@ -42,7 +42,7 @@
 			color: darken($brand-text, 5%);
 			opacity: 0;
 			animation: fadeinheading 2s linear forwards;
-			font-size: 2.5rem;
+			font-size: 2.5vw;
 			font-weight: 300;
 			font-family: 'EB Garamond', sans-serif;
 			margin: 1rem 0;
@@ -52,7 +52,7 @@
 			color: darken($brand-text, 15%);
 			opacity: 0;
 			animation: fadeinheading 2s linear forwards;
-			font-size: 2.5rem;
+			font-size: 2.5vw;
 			font-weight: 300;
 			font-family: 'Tangerine', sans-serif;
 			margin: 1rem 0;
@@ -81,17 +81,35 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		align-items: flex-start;
-		background-color: darken($brand-blue,5%);
+		align-items: center;
+		background-color: darken($brand-blue, 5%);
+		position: relative;
+		border-bottom-left-radius: 200px;
+		width: 40vw;
+		& .teacher__svg {
+			position: absolute;
+			width: 80%;
+			z-index: 1;
+		}
+		& .header__wav {
+			position: absolute;
+			bottom: 100%;
+			z-index: 0;
+			width: 100%;
+		}
 		& .button__container {
 			display: flex;
-			flex-direction: column;
+			flex-direction: row;
+			justify-content: center;
+			z-index: 1;
+			position: absolute;
+			bottom: 0;
 			& button:nth-child(1) {
 				width: 15rem;
 				padding: 1rem;
-				background: transparent;
+				background: $brand-brown;
 				margin: 1rem;
-				color: $brand-brown;
+				color: $brand-text;
 				border: 3px solid $brand-brown;
 				font-weight: 300;
 				transition: all 0.3s ease-in-out;
@@ -135,6 +153,7 @@
 	left: 0;
 	width: 100%;
 	max-height: 10rem;
+	z-index: 100;
 	& .item {
 		color: $brand-text;
 		width: 100%;
@@ -150,22 +169,27 @@
 			font-family: 'EB Garamond', serif, sans-serif;
 			font-size: 1.3rem;
 			letter-spacing: 0.9px;
-			margin:0 1rem;
+			margin: 0 1rem;
 		}
-		& svg {
+		& .video__svg,
+		.virtual__svg,
+		.inperson__svg {
 			font-size: 2.5rem;
+			width: 3vw;
 		}
 		&:hover {
 			flex-direction: column;
-			height: 25rem;
+			height: 35vh;
 			cursor: pointer;
 			background: lighter($brand-brown, 5%);
 		}
-		&:hover svg {
-			font-size: 4rem;
+		&:hover .video__svg,
+		&:hover .virtual__svg,
+		&:hover .inperson__svg {
+			width: 5vw;
 		}
 		&:hover li svg {
-			font-size: 2rem;
+			font-size: 2vw;
 		}
 
 		& ul {
@@ -218,10 +242,10 @@
 		}
 	}
 }
-@media screen and (max-width:1400px){
-	.header{
-		& .text__box__left{
-			& h1{
+@media screen and (max-width: 1400px) {
+	.header {
+		& .text__box__left {
+			& h1 {
 				font-size: 4rem;
 			}
 		}
@@ -232,6 +256,7 @@
 	.header {
 		max-height: 100vh;
 		height: 100vh;
+		justify-content: flex-start;
 		& .header__grid {
 			display: grid;
 			grid-template-columns: 1fr;
@@ -239,57 +264,40 @@
 			justify-items: center;
 			align-content: flex-start;
 			gap: 0.5rem;
-			margin:-5rem 0;
+			margin: 5rem 0;
 		}
 		& .text__box__left {
+			z-index: 3;
 			& h1 {
-				font-size: 2.3rem;
+				font-size: 10vw;
 				&::after {
 					display: none;
 				}
 			}
 			& h2 {
-				font-size: 1.6rem;
+				font-size: 6vw;
 			}
 			& h3 {
-				font-size: 1.7rem;
+				color: darken($brand-text, 20%);
+				font-size: 8vw;
+				font-weight: 700;
+				&::after {
+					content: '';
+					display: block;
+					background: $brand-accent;
+					width: 7rem;
+					height: 0.2vh;
+				}
 			}
 		}
 		& .divider {
-			opacity: 0;
-			display: flex;
-			flex-direction: row;
-			justify-content: center;
-			align-items: center;
-			width: 80vw;
-			color: $brand-brown;
-			animation: fadeinheading 1.5s linear forwards;
-			& svg {
-				font-size: 3rem;
-				margin: 0 0.5rem;
-			}
-			& span {
-				height: 0.2rem;
-				width: 35vw;
-				background: $brand-accent;
-			}
+			display: none;
 		}
 		& .text__box__right {
-			visibility: hidden;
-			display: none;
+			width: 80vw;
+			height: 10vh;
 			& .button__container {
-				flex-direction: row;
-				flex-wrap: wrap;
-				& button:nth-child(1) {
-					padding: 0.5rem;
-					width: 10rem;
-					font-size: 1rem;
-				}
-				& button:nth-child(2) {
-					padding: 0.5rem;
-					width: 10rem;
-					font-size: 1rem;
-				}
+				display: none;
 			}
 		}
 	}
@@ -304,7 +312,6 @@
 			width: 100%;
 			display: flex;
 			flex-direction: row;
-			flex-wrap: wrap;
 			justify-content: center;
 			align-items: center;
 			opacity: 0.8;
@@ -316,25 +323,32 @@
 				flex-direction: column;
 			}
 			& h3 {
-				font-family: 'Eb Garamond', serif, sans-serif;
-				font-size: 1rem;
+				font-family: 'EB Garamond', serif, sans-serif;
+				font-size: 5vw;
 				letter-spacing: 0.9px;
 			}
 			& svg {
 				font-size: 1.6rem;
 				margin: 0 0.5rem;
 			}
-			&:hover svg {
-				font-size: 2.5rem;
+			& .video__svg,
+			.virtual__svg,
+			.inperson__svg {
+				width: 7vw;
+			}
+			&:hover .video__svg,
+			&:hover .virtual__svg,
+			&:hover .inperson__svg {
+				width: 15vw;
 			}
 			&:hover ul li svg {
-				font-size: 1.5rem;
+				font-size: 3vw;
 			}
 			&:hover h3 {
-				font-size: 1.3rem;
+				font-size: 5vw;
 			}
 			&:hover ul li p {
-				font-size: 1.2rem;
+				font-size: 5vw;
 			}
 			& ul {
 				display: flex;
@@ -349,18 +363,8 @@
 				margin: 0 0 0.5rem 0;
 			}
 			& ul li p {
-				font-size: 0.9rem;
+				font-size: 1vw;
 			}
-		}
-	}
-	.text__box {
-		& h1 {
-			text-align: center;
-			font-size: 2rem;
-			margin: 1rem;
-		}
-		& h2 {
-			font-size: 2rem;
 		}
 	}
 }

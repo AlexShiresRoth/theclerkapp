@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import '../stylesheets/style.css';
 import Nav from './nav';
 import Footer from './footer';
 const layout = ({ children }) => {

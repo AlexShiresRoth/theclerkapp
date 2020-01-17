@@ -1,8 +1,8 @@
 @import '../../../sass/variables';
 
 .nav {
-	background: $brand-blue;
-	z-index: 9999;
+	background: darken($brand-blue, 5%);
+	z-index: 99999999;
 	position: fixed;
 	display: flex;
 	flex-direction: row;

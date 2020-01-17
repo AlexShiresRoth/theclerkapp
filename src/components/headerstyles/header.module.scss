@@ -9,7 +9,6 @@
 	justify-content: center;
 	align-items: center;
 	background-color: #557a95;
-	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 100 100'%3E%3Cg stroke='%237395ae' stroke-width='7.5' stroke-opacity='0.15'%3E%3Crect fill='%237395ae' x='-60' y='-60' width='61' height='240'/%3E%3C/g%3E%3C/svg%3E");
 	position: relative;
 
 	& .header__grid {
@@ -240,10 +239,10 @@
 				}
 			}
 			& h2 {
-				font-size: 1.5rem;
+				font-size: 1.6rem;
 			}
 			& h3 {
-				font-size: 1.5rem;
+				font-size: 1.7rem;
 			}
 		}
 		& .divider {
@@ -252,7 +251,7 @@
 			flex-direction: row;
 			justify-content: center;
 			align-items: center;
-			width: 70vw;
+			width: 90vw;
 			color: $brand-brown;
 			animation: fadeinheading 1.5s linear forwards;
 			& svg {
@@ -261,13 +260,14 @@
 			}
 			& span {
 				height: 0.2rem;
-				width: 40vw;
+				width: 45vw;
 				background: $brand-accent;
 			}
 		}
 		& .text__box__right {
 			& .button__container {
 				flex-direction: row;
+				flex-wrap: wrap;
 				& button:nth-child(1) {
 					padding: 0.5rem;
 					width: 10rem;

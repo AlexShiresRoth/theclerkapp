@@ -82,7 +82,7 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: flex-start;
-
+		background-color: darken($brand-blue,5%);
 		& .button__container {
 			display: flex;
 			flex-direction: column;
@@ -239,6 +239,7 @@
 			justify-items: center;
 			align-content: flex-start;
 			gap: 0.5rem;
+			margin:-5rem 0;
 		}
 		& .text__box__left {
 			& h1 {

@@ -16,9 +16,6 @@ const ServicesMap = ({
       <div
         className={servicesStyles.service__container}
         style={{
-          background: `url(${
-            servicesImages[i] !== undefined ? servicesImages[i].img : ""
-          })`,
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
           backgroundAttachment: "fixed"

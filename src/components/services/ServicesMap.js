@@ -16,6 +16,9 @@ const ServicesMap = ({
       <div
         className={servicesStyles.service__container}
         style={{
+          background: `url(${
+            servicesImages[i] !== undefined ? servicesImages[i].img : ""
+          })`,
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
           backgroundAttachment: "fixed"
@@ -23,10 +26,13 @@ const ServicesMap = ({
         key={i}
       >
         {i > 0 && i <= services.length - 1 ? (
-          <MdKeyboardArrowUp
+          <button
             className={servicesStyles.arrow__up}
+            onTouchStart={e => _throttle(scrollServicesUp(e, i), 1000)}
             onClick={e => _throttle(scrollServicesUp(e, i), 1000)}
-          />
+          >
+            <MdKeyboardArrowUp />
+          </button>
         ) : null}
         <div className={servicesStyles.img__overlay}></div>
 
@@ -69,10 +75,13 @@ const ServicesMap = ({
           ))}
         </div>
         {i >= 0 && i < services.length - 1 ? (
-          <MdKeyboardArrowDown
+          <button
             className={servicesStyles.arrow__down}
+            onTouchStart={e => _throttle(scrollServicesDown(e, i), 1000)}
             onClick={e => _throttle(scrollServicesDown(e, i), 1000)}
-          />
+          >
+            <MdKeyboardArrowDown />
+          </button>
         ) : null}
       </div>
     );

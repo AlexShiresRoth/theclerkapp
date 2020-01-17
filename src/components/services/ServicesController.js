@@ -31,7 +31,7 @@ const ServicesController = () => {
   };
 
   const breakFromFixedPosition = e => {
-    e.stopPropagation();
+    if (e) e.stopPropagation();
     setContainerStyle({
       position: "",
       top: "0rem"

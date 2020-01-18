@@ -1,6 +1,13 @@
 import React from 'react';
 import headerStyles from './headerstyles/header.module.scss';
-import { headerSvg, headerWavSvg, virtualSvg, videoSvg, inPersonSvg } from './headerstyles/headerSvg';
+import {
+	headerSvg,
+	headerWavSvg,
+	virtualSvg,
+	videoSvg,
+	inPersonSvg,
+	alternateHeaderSvg,
+} from './headerstyles/headerSvg';
 import { FaBookOpen } from 'react-icons/fa';
 import { MdDoneAll } from 'react-icons/md';
 
@@ -82,7 +89,7 @@ class Header extends React.Component {
 						<span></span>
 					</div>
 					<div className={headerStyles.text__box__right}>
-						{headerSvg}
+						{alternateHeaderSvg}
 						{headerWavSvg}
 						<div className={headerStyles.button__container}>
 							<button>Contact</button>

@@ -1,18 +1,17 @@
 import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
 import Layout from '../layout';
-import ServicesHeader from '../services/ServicesHeader';
-const Services = props => {
+import VideosHeader from '../videos/VideosHeader';
+import { VideosMap } from '../videos/VideosMap';
+const Videos = () => {
 	useEffect(() => {
 		window.scrollTo(0, 0);
 	}, []);
 	return (
 		<Layout>
-			<ServicesHeader />
+			<VideosHeader />
+			<VideosMap />
 		</Layout>
 	);
 };
 
-Services.propTypes = {};
-
-export default Services;
+export default Videos;

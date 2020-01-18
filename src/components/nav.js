@@ -38,11 +38,15 @@ class Nav extends React.Component {
 					<li>
 						<Link to="/">Home</Link>
 					</li>
+
 					<li>
-						<Link to="/about">About</Link>
+						<Link to="/services/">Services</Link>
 					</li>
 					<li>
-						<Link to="/services">Services</Link>
+						<Link to="/videos/">Videos</Link>
+					</li>
+					<li>
+						<Link to="/about/">About</Link>
 					</li>
 				</ul>
 			</div>
@@ -128,13 +132,15 @@ class Nav extends React.Component {
 								'https://res.cloudinary.com/snackmanproductions/image/upload/v1574282613/tutoring-site/logo_transparent_background_ewr81c.png'
 							}
 							className={navStyles.logo}
+							alt="the clerk of oxford company logo"
 						/>
 					</Link>
 				</div>
 				<div className={navStyles.nav__right}>
 					<NavLink to="/">Home</NavLink>
-					<NavLink to="/about/">About</NavLink>
 					<NavLink to="/services/">Services</NavLink>
+					<NavLink to="/videos">Videos</NavLink>
+					<NavLink to="/about/">About</NavLink>
 				</div>
 			</nav>
 		);

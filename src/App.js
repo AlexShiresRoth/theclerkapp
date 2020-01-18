@@ -6,7 +6,7 @@ import { PrismicLink } from 'apollo-link-prismic';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import Home from './components/pages/Home';
 import About from './components/pages/About';
-import Quiz from './components/pages/Quiz';
+import Videos from './components/pages/Videos';
 import Services from './components/pages/Services';
 import './stylesheets/style.css';
 
@@ -21,7 +21,7 @@ const App = () => {
 			<Router>
 				<Home path="/" />
 				<About path="/about" />
-				<Quiz path="/quiz" />
+				<Videos path="/videos" />
 				<Services path="/services" />
 			</Router>
 		</ApolloProvider>

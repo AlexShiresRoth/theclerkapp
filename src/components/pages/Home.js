@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
 import Layout from '../layout';
 import Header from '../header';
-const Home = props => {
+const Home = () => {
 	useEffect(() => {
 		window.scrollTo(0, 0);
 	}, []);
@@ -12,7 +11,5 @@ const Home = props => {
 		</Layout>
 	);
 };
-
-Home.propTypes = {};
 
 export default Home;

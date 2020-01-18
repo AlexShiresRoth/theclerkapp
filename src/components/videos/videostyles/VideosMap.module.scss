@@ -1,0 +1,14 @@
+@import '../../../../sass/variables';
+
+.container {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	padding: 5vh 5vw;
+	& .video__slider {
+		margin: 2vh 2vw;
+		display: flex;
+		flex-direction: column;
+		background: darken($brand-blue, 5%);
+	}
+}

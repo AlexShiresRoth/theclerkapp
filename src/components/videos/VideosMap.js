@@ -20,5 +20,5 @@ export const VideosMap = () => {
 		);
 	});
 
-	return <>{videoMap}</>;
+	return <div className={videoStyles.container}>{videoMap}</div>;
 };

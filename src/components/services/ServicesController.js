@@ -94,9 +94,6 @@ const ServicesController = () => {
 				scrollServicesDown={scrollServicesDown}
 				currentIndex={currentIndex}
 			/>
-			{containerStyle.position === 'fixed' ? (
-				<ServicesIndexMarker index={currentIndex} services={services} />
-			) : null}
 		</div>
 	);
 };

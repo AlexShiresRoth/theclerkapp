@@ -42,7 +42,7 @@ const ServicesController = () => {
       top: 0,
       behavior: "smooth"
     });
-
+    //set to top of services slides
     if (serviceRef.current) {
       serviceRef.current.scrollTop = 0;
     }
@@ -52,6 +52,9 @@ const ServicesController = () => {
   const handleResize = () => breakFromFixedPosition();
 
   useEffect(() => {
+    //resize breaks current scroll position of slides
+    window.addEventListener("resize", handleResize);
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.intersectionRatio >= 0.7) {
@@ -73,8 +76,10 @@ const ServicesController = () => {
     if (serviceRef.current) observer.observe(serviceRef.current);
     else observer.unobserve(serviceRef.current);
 
-    //resize breaks current scroll position of slides
-    window.addEventListener("resize", handleResize);
+    return () => {
+      observer.unobserve(serviceRef.current);
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
   return (
     <div

@@ -20,11 +20,11 @@
 		position: fixed;
 		top: 4rem;
 		left: 0;
-		display: flex;
-		justify-content: center;
-		align-items: center;
 		min-width: 5vw;
 		background: $brand-blue;
+		display:flex;
+		flex-direction: row;
+		align-items: center;
 		z-index: 999999999;
 		opacity: 1;
 		visibility: visible;
@@ -50,8 +50,7 @@
 			flex-direction: row;
 			justify-content: center;
 			align-items: center;
-			height:15vh;
-			background: darken($color: $brand-blue, $amount: 10%);
+			height:100%;
 		}
 		&:hover::after {
 			content: 'Back out of slide show?';
@@ -86,10 +85,7 @@
 			position: fixed;
 			top: 4rem;
 			left: 0;
-			display: flex;
-			flex-direction: row;
-			justify-content: center;
-			align-items: center;
+			max-height: 20vh;
 			min-width: 5vw;
 			background: $brand-blue;
 			z-index: 999999999;

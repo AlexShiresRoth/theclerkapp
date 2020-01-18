@@ -8,17 +8,14 @@
 	flex-direction: column;
 	justify-content: space-around;
 	align-items: center;
-	min-height: 10rem;
-	width: 3rem;
-	background: $brand-blue;
+	min-height: 15vh;
+	width: 3vw;
+	background: transparent;
 	transition: all 0.4s ease-in-out;
-	box-shadow: 0 4px 4px $brand-dark-blue;
 	& .index__marker {
 		svg {
 			width: 1rem;
 			overflow: visible;
-			stroke-dasharray: 50;
-			stroke-dashoffset: 100;
 			transition: all 0.4s ease-in-out;
 			stroke: lighten($brand-accent, 10%);
 			fill: lighten($brand-accent, 10%);
@@ -51,23 +48,20 @@
 @media screen and (max-width: 700px) {
 	.index__box {
 		position: fixed;
-		top: 94%;
+		top: 44%;
 		left: 0%;
 		display: flex;
-		flex-direction: row;
+		flex-direction: column;
 		justify-content: space-around;
 		align-items: center;
-		min-height: 3rem;
-		width: 10rem;
-		background: $brand-blue;
+		min-height: 15vh;
+		width: 8vw;
+		background: transparent;
 		transition: all 0.4s ease-in-out;
-		box-shadow: 0 4px 4px $brand-dark-blue;
 		& .index__marker {
 			svg {
 				width: 1rem;
 				overflow: visible;
-				stroke-dasharray: 50;
-				stroke-dashoffset: 100;
 				transition: all 0.4s ease-in-out;
 				stroke: lighten($brand-accent, 10%);
 				fill: lighten($brand-accent, 10%);

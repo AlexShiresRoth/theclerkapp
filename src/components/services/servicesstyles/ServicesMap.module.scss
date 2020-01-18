@@ -85,7 +85,7 @@
 		z-index: 0;
 		& .img__overlay {
 			position: absolute;
-			background: rgba(177, 162, 150, 0.55);
+			background: rgba(177, 162, 150, 1);
 		}
 		& .service__heading {
 			justify-self: start;
@@ -156,7 +156,7 @@
 		}
 		& .img__overlay {
 			position: absolute;
-			background: rgba(66, 95, 117, 0.55);
+			background: rgba(66, 95, 117, 1);
 		}
 		& .service__list {
 			order: 0;
@@ -224,7 +224,7 @@
 
 		& .img__overlay {
 			position: absolute;
-			background: rgba(115, 149, 174, 0.55);
+			background: rgba(115, 149, 174, 1);
 		}
 		& .service__heading {
 			justify-self: start;
@@ -330,7 +330,6 @@
 
 			& .img__overlay {
 				position: absolute;
-				background: rgba(177, 162, 150, 0.5);
 			}
 			& .service__heading {
 				background-color: lighten($brand-brown, 5%);
@@ -375,7 +374,6 @@
 
 			& .img__overlay {
 				position: absolute;
-				background: rgba(66, 95, 117, 0.5);
 			}
 			& .service__list {
 				order: 0;
@@ -418,7 +416,6 @@
 
 			& .img__overlay {
 				position: absolute;
-				background: rgba(115, 149, 174, 0.5);
 			}
 			& .service__heading {
 				background: lighten($brand-accent, 5%);
@@ -505,7 +502,6 @@
 
 			& .img__overlay {
 				position: absolute;
-				background: rgba(177, 162, 150, 0.5);
 			}
 			& .service__heading {
 				background: lighten($brand-brown, 5%);
@@ -550,7 +546,6 @@
 
 			& .img__overlay {
 				position: absolute;
-				background: rgba(66, 95, 117, 0.5);
 			}
 			& .service__list {
 				order: 1;
@@ -596,7 +591,6 @@
 
 			& .img__overlay {
 				position: absolute;
-				background: rgba(115, 149, 174, 0.5);
 			}
 			& .service__heading {
 				background: lighten($brand-accent, 5%);
@@ -657,11 +651,12 @@
 		}
 		& .service__heading {
 			justify-content: center;
-			margin-top: 5vh;
+			
 			& h3 {
 				font-size: 10vw;
 			}
 			& svg {
+				margin-top: 5vh;
 				width: 40vw;
 			}
 		}
@@ -709,10 +704,6 @@
 					}
 				}
 			}
-			& .img__overlay {
-				position: absolute;
-				background: rgba(177, 162, 150, 0.6);
-			}
 		}
 		&:nth-child(3) {
 			& .service__heading {
@@ -743,9 +734,6 @@
 					}
 				}
 			}
-			& .img__overlay {
-				background: rgba(66, 95, 117, 0.8);
-			}
 		}
 		&:nth-child(4) {
 			& .service__heading {
@@ -775,9 +763,6 @@
 						z-index: -1;
 					}
 				}
-			}
-			& .img__overlay {
-				background: rgba(115, 149, 174, 0.3);
 			}
 		}
 	}

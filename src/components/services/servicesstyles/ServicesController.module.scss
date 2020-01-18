@@ -23,7 +23,6 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		max-height: 10vh;
 		min-width: 5vw;
 		background: $brand-blue;
 		z-index: 999999999;
@@ -51,6 +50,7 @@
 			flex-direction: row;
 			justify-content: center;
 			align-items: center;
+			height:15vh;
 			background: darken($color: $brand-blue, $amount: 10%);
 		}
 		&:hover::after {
@@ -60,8 +60,7 @@
 			opacity: 1;
 			padding: 0 1rem;
 			font-size: 1.2rem;
-			min-width: 5rem;
-			height: 5rem;
+			min-width: 5vw;
 		}
 	}
 	& .close__button__hidden {
@@ -88,9 +87,9 @@
 			top: 4rem;
 			left: 0;
 			display: flex;
+			flex-direction: row;
 			justify-content: center;
 			align-items: center;
-			max-height: 10vh;
 			min-width: 5vw;
 			background: $brand-blue;
 			z-index: 999999999;
@@ -98,9 +97,9 @@
 			visibility: visible;
 			transition: all 0.4s ease-in-out;
 			& svg {
-				padding: 1rem;
+				padding: .5rem;
 				color: $brand-text;
-				font-size: 2rem;
+				font-size: 7vw;
 				transition: all 0.3s ease-in-out;
 			}
 		}

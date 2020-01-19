@@ -1,0 +1,78 @@
+@import "../../../../sass/variables";
+@import "../../../../sass/mixins";
+.header {
+  padding: 4rem 0 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.contact__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  & .title__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 4;
+    margin: 4rem 0;
+    opacity: 0;
+    animation: fadein 0.6s linear forwards;
+    & h1 {
+      font-family: "Tangerine", Verdana, Geneva, Tahoma, sans-serif;
+      color: $brand-brown;
+      font-size: 5vw;
+      margin: 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      min-width: 27rem;
+      &::before {
+        content: "";
+        width: 7rem;
+        height: 0.2rem;
+        display: block;
+        background: $brand-accent;
+      }
+      &::after {
+        content: "";
+        width: 7rem;
+        height: 0.2rem;
+        display: block;
+        background: $brand-accent;
+      }
+    }
+    & p {
+      margin: 0;
+      @include paragraph-secondary;
+    }
+  }
+}
+
+@media screen and (max-width: 700px){
+  .contact__container {
+    & .title__container{
+      & h1 {
+        font-size:3.5rem;
+      }
+      & p {
+        @include paragraph-secondary-small;
+      }
+    }
+  }
+}
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  90% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+  }
+}

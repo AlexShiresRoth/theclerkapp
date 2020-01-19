@@ -1,0 +1,82 @@
+@import "../../../../sass/variables";
+@import "../../../../sass/mixins";
+
+.container {
+    width:90vw;
+    margin:0vh auto;
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    & .form {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        background: darken($brand-blue,10%);
+        padding:0vh 2vw;
+        margin: 5vh 5vw;
+        width: 40vw;
+        & .input__row{
+            display:flex;
+            flex-direction: column;
+            margin: 2vh 0;
+            & label {
+                font-size:2vw;
+                color: $brand-brown;
+                font-weight:300;
+                font-family: 'EB Garamond';
+            }
+            & input {
+                padding: 2vh 1vw;
+                background: transparent;
+                
+                border: 2px solid $brand-blue;
+                color: $brand-text;
+            }
+            & textarea {
+                height: 30vh;
+                padding:2vh 2vw;
+                background: transparent;
+                border: 2px solid $brand-blue;
+                color: $brand-text;
+            }
+            & button {
+                background: $brand-blue;
+                padding: 2vh 2vw;
+                color: $brand-text;
+                font-size: 2vw;
+                font-family: 'EB Garamond';
+                border:1px solid $brand-blue;
+                transition:all .3s ease-in-out;
+                &:hover{
+                    cursor: pointer;
+                    background: darken($color: $brand-blue, $amount: 5%);
+                    box-shadow: 0 4px 4px darken($brand-blue, 15%);
+                    border: 1px solid darken($brand-blue,15%);
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 700px){
+    .container{
+        & .form{
+            width:90vw;
+            & .input__row{
+                & label {
+                    font-size:10vw;
+                }
+                & input {
+                    font-size: 16px;
+                }
+                & textarea{
+                    font-size: 16px;
+                }
+                & button {
+                    font-size: 10vw;
+                }
+            }
+        }
+    }
+}

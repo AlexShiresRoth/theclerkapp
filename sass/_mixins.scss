@@ -1,6 +1,6 @@
 @mixin paragraph-secondary {
 	color: $brand-text;
-	font-size: 2rem;
+	font-size: 2vw;
 	font-family: 'EB Garamond', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva,
 		Verdana, sans-serif;
 	max-width: 50vw;
@@ -8,7 +8,7 @@
 }
 @mixin paragraph-secondary-med {
 	color: $brand-text;
-	font-size: 1.6rem;
+	font-size: 10vw;
 	font-family: 'EB Garamond', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva,
 		Verdana, sans-serif;
 	max-width: 60vw;
@@ -16,7 +16,7 @@
 }
 @mixin paragraph-secondary-small {
 	color: $brand-text;
-	font-size: 1.6rem;
+	font-size: 10vw;
 	font-family: 'EB Garamond', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva,
 		Verdana, sans-serif;
 	max-width: 80vw;

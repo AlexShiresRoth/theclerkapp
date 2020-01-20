@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { services } from "./servicesArray";
 import { MdClear } from "react-icons/md";
 import { _throttle } from "lodash";
+import IntersectionObserver from "intersection-observer-polyfill";
 import servicesStyles from "./servicesstyles/ServicesController.module.scss";
 import ServicesIndexMarker from "./ServiceIndexMarker";
 import ServicesMap from "./ServicesMap";

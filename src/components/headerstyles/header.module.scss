@@ -17,6 +17,7 @@
 		justify-items: center;
 		align-content: center;
 		gap: 2rem;
+		flex:4;
 	}
 	.text__box__left {
 		display: flex;
@@ -306,7 +307,7 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		max-height: 100rem;
+		max-height: 100vh;
 		& .item {
 			color: $brand-text;
 			width: 100%;
@@ -317,8 +318,8 @@
 			opacity: 0.8;
 			transition: all 0.3s ease-in-out;
 			align-self: flex-end;
-			height: 4rem;
-			max-height: 20rem;
+			height: 8vh;
+			max-height: 25vh;
 			&:hover {
 				flex-direction: column;
 			}
@@ -328,7 +329,7 @@
 				letter-spacing: 0.9px;
 			}
 			& svg {
-				font-size: 1.6rem;
+				font-size: 2vw;
 				margin: 0 0.5rem;
 			}
 			& .video__svg,
@@ -342,7 +343,7 @@
 				width: 15vw;
 			}
 			&:hover ul li svg {
-				font-size: 3vw;
+				font-size: 5vw;
 			}
 			&:hover h3 {
 				font-size: 5vw;

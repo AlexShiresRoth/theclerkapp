@@ -1,24 +1,41 @@
 @mixin paragraph-secondary {
-	color: $brand-text;
-	font-size: 2vw;
-	font-family: 'EB Garamond', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva,
-		Verdana, sans-serif;
-	max-width: 50vw;
-	text-align: center;
+  color: $brand-text;
+  font-size: 2vw;
+  font-family: "EB Garamond", "Lucida Sans", "Lucida Sans Regular",
+    "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  max-width: 50vw;
+  text-align: center;
 }
 @mixin paragraph-secondary-med {
-	color: $brand-text;
-	font-size: 10vw;
-	font-family: 'EB Garamond', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva,
-		Verdana, sans-serif;
-	max-width: 60vw;
-	text-align: center;
+  color: $brand-text;
+  font-size: 5vw;
+  font-family: "EB Garamond", "Lucida Sans", "Lucida Sans Regular",
+    "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  max-width: 60vw;
+  text-align: center;
 }
 @mixin paragraph-secondary-small {
-	color: $brand-text;
-	font-size: 10vw;
-	font-family: 'EB Garamond', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva,
-		Verdana, sans-serif;
-	max-width: 80vw;
-	text-align: center;
+  color: $brand-text;
+  font-size: 7vw;
+  font-family: "EB Garamond", "Lucida Sans", "Lucida Sans Regular",
+    "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  max-width: 80vw;
+  text-align: center;
+}
+
+@mixin header-large {
+  font-family: "Tangerine", Verdana, Geneva, Tahoma, sans-serif;
+  color: $brand-brown;
+  font-size: 5vw;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 27rem;
+}
+@mixin header-small {
+	font-size: 7vw;
+	margin-top: 5vh;
+	min-width: 22rem;
 }

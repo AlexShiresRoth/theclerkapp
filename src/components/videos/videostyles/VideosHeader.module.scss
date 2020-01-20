@@ -61,6 +61,9 @@
 				& h1{
 					font-size: 12vw;
 				}
+				& p {
+					@include paragraph-secondary-small;
+				}
 			}
 		}
 	}

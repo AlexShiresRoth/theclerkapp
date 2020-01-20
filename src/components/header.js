@@ -1,6 +1,6 @@
 import React from "react";
 import headerStyles from "./headerstyles/header.module.scss";
-import { Link } from "@reach/router";
+import { Link } from "react-router-dom";
 import {
   headerSvg,
   headerWavSvg,

@@ -1,4 +1,4 @@
-import { Link } from "@reach/router";
+import { Link, NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
 import { FiMenu, FiX } from "react-icons/fi";
 import React from "react";
@@ -55,18 +55,6 @@ class Nav extends React.Component {
       </div>
     );
 
-    const NavLink = props => (
-      <Link
-        {...props}
-        getProps={({ isCurrent }) => {
-          // the object returned here is passed to the
-          // anchor element's props
-          return {
-            className: isCurrent ? navStyles.active : ""
-          };
-        }}
-      />
-    );
     const ReservedNav = (
       <>
         <NavLink to="/quiz/">Quiz</NavLink>
@@ -146,11 +134,21 @@ class Nav extends React.Component {
           </Link>
         </div>
         <div className={navStyles.nav__right}>
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/services/">Services</NavLink>
-          <NavLink to="/videos">Videos</NavLink>
-          <NavLink to="/about/">About</NavLink>
-          <NavLink to="/contact/">Contact</NavLink>
+          <NavLink exact to="/" activeClassName={navStyles.active}>
+            Home
+          </NavLink>
+          <NavLink exact to="/services" activeClassName={navStyles.active}>
+            Services
+          </NavLink>
+          <NavLink exact to="/videos" activeClassName={navStyles.active}>
+            Videos
+          </NavLink>
+          <NavLink exact to="/about" activeClassName={navStyles.active}>
+            About
+          </NavLink>
+          <NavLink exact to="/contact" activeClassName={navStyles.active}>
+            Contact
+          </NavLink>
         </div>
       </nav>
     );

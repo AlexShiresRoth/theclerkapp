@@ -1,5 +1,5 @@
 import React from "react";
-import { Router } from "@reach/router";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { ApolloProvider } from "react-apollo";
 import { ApolloClient } from "apollo-client";
 import { PrismicLink } from "apollo-link-prismic";
@@ -23,11 +23,13 @@ const App = () => {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <Home path="/" />
-        <About path="/about" />
-        <Videos path="/videos" />
-        <Services path="/services" />
-        <Contact path="/contact" />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/about" component={About} />
+          <Route exact path="/videos" component={Videos} />
+          <Route exact path="/services" component={Services} />
+          <Route exact path="/contact" component={Contact} />
+        </Switch>
       </Router>
     </ApolloProvider>
   );

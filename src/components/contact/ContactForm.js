@@ -32,6 +32,7 @@ const ContactForm = props => {
             onChange={e => onChange(e)}
             name="name"
             type="text"
+            placeholder="Emma Johnson"
             required
           />
         </div>
@@ -42,6 +43,7 @@ const ContactForm = props => {
             onChange={e => onChange(e)}
             name="email"
             type="email"
+            placeholder="student@gmail.com"
             required
           />
         </div>
@@ -52,6 +54,7 @@ const ContactForm = props => {
             onChange={e => onChange(e)}
             name="subject"
             type="text"
+            placeholder="Math, writing, reading..."
             required
           />
         </div>
@@ -62,6 +65,7 @@ const ContactForm = props => {
             onChange={e => onChange(e)}
             name="message"
             type="text"
+            placeholder="Hi, I would like to inquire about your rates."
             required
           />
         </div>

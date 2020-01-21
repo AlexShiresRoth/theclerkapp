@@ -663,17 +663,18 @@
 		& .arrow__up {
 			position: absolute;
 			top: 4rem;
-			left: 82%;
+			left: 80%;
 			z-index: 5;
-			font-size: 4rem;
+			font-size: 20vw;
 			color: $brand-text;
 			opacity: 0.8;
 			margin: 0;
 		}
 		& .arrow__down {
-			left: 82%;
+			left: 80%;
 			margin: 0;
-			font-size: 4rem;
+			font-size: 20vw;
+			bottom: 5%;
 		}
 		&:nth-child(2) {
 			& .service__heading {

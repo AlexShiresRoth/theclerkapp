@@ -76,7 +76,7 @@
 	.header {
 		& .title__container {
 			& h1 {
-				font-size: 4rem;
+				@include header-small;
 
 				&::before {
 					content: '';

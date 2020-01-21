@@ -218,9 +218,7 @@
 	.about__container {
 		& .title__container {
 			& h1 {
-				font-size: 3.5rem;
-				margin-top: 2rem;
-				min-width: 22rem;
+				@include header-small;
 			}
 			& p {
 				font-size: 1.6rem;

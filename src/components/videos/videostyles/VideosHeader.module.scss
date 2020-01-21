@@ -59,7 +59,7 @@
 		.videos__container{
 			& .title__container{
 				& h1{
-					font-size: 12vw;
+					@include header-small;
 				}
 				& p {
 					@include paragraph-secondary-small;

@@ -61,9 +61,11 @@
 
 @media screen and (max-width: 700px){
     .container{
+        width:100vw;
         & .form{
-            width:90vw;
+            width:100%;
             & .input__row{
+                margin: 1vh 5vw;
                 & label {
                     font-size:10vw;
                 }
@@ -74,7 +76,7 @@
                     font-size: 16px;
                 }
                 & button {
-                    font-size: 10vw;
+                    font-size: 8vw;
                 }
             }
         }

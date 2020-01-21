@@ -57,7 +57,7 @@
   .contact__container {
     & .title__container{
       & h1 {
-        font-size:3.5rem;
+        @include header-small;
       }
       & p {
         @include paragraph-secondary-small;

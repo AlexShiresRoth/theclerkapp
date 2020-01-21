@@ -14,20 +14,20 @@
 	transition: all 0.4s ease-in-out;
 	& .index__marker {
 		svg {
-			width: 1rem;
+			width: .5rem;
 			overflow: visible;
 			transition: all 0.4s ease-in-out;
 			stroke: lighten($brand-accent, 10%);
 			fill: lighten($brand-accent, 10%);
 			& circle {
-				width: 2rem;
+				width: 1rem;
 				transition: all 1s ease-in-out;
 			}
 		}
 	}
 	& .current {
 		svg {
-			width: 1rem;
+			width: .7rem;
 			overflow: visible;
 			stroke-dasharray: 50;
 			stroke-dashoffset: 100;
@@ -60,20 +60,20 @@
 		transition: all 0.4s ease-in-out;
 		& .index__marker {
 			svg {
-				width: 1rem;
+				width: .5rem;
 				overflow: visible;
 				transition: all 0.4s ease-in-out;
 				stroke: lighten($brand-accent, 10%);
 				fill: lighten($brand-accent, 10%);
 				& circle {
-					width: 2rem;
+					width: 1rem;
 					transition: all 1s ease-in-out;
 				}
 			}
 		}
 		& .current {
 			svg {
-				width: 1rem;
+				width: .7rem;
 				overflow: visible;
 				stroke-dasharray: 50;
 				stroke-dashoffset: 100;

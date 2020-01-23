@@ -1,41 +1,63 @@
 @mixin paragraph-secondary {
-  color: $brand-text;
-  font-size: 2vw;
-  font-family: "EB Garamond", "Lucida Sans", "Lucida Sans Regular",
-    "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  max-width: 50vw;
-  text-align: center;
+	color: $brand-text;
+	font-size: 2vw;
+	font-family: 'EB Garamond', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva,
+		Verdana, sans-serif;
+	max-width: 50vw;
+	text-align: center;
 }
 @mixin paragraph-secondary-med {
-  color: $brand-text;
-  font-size: 5vw;
-  font-family: "EB Garamond", "Lucida Sans", "Lucida Sans Regular",
-    "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  max-width: 60vw;
-  text-align: center;
+	color: $brand-text;
+	font-size: 5vw;
+	font-family: 'EB Garamond', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva,
+		Verdana, sans-serif;
+	max-width: 60vw;
+	text-align: center;
 }
 @mixin paragraph-secondary-small {
-  color: $brand-text;
-  font-size: 7vw;
-  font-family: "EB Garamond", "Lucida Sans", "Lucida Sans Regular",
-    "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  max-width: 80vw;
-  text-align: center;
+	color: $brand-text;
+	font-size: 7vw;
+	font-family: 'EB Garamond', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva,
+		Verdana, sans-serif;
+	max-width: 80vw;
+	text-align: center;
 }
 
 @mixin header-large {
-  font-family: "Tangerine", Verdana, Geneva, Tahoma, sans-serif;
-  color: $brand-brown;
-  font-size: 5vw;
-  margin: 0;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  min-width: 27rem;
+	font-family: 'Tangerine', Verdana, Geneva, Tahoma, sans-serif;
+	color: $brand-brown;
+	font-size: 5vw;
+	margin: 0;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	min-width: 27rem;
 }
 @mixin header-small {
 	font-size: 17vw;
-	margin-top: 5vh;
+	margin-top: 0vh;
 	min-width: 22rem;
+}
+@mixin title-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	z-index: 4;
+	margin: 10vh 0;
+	opacity: 0;
+	animation: fadein 0.6s linear forwards;
+}
+@mixin title-container-small {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	z-index: 4;
+	margin: 7vh 0;
+	opacity: 0;
+	animation: fadein 0.6s linear forwards;
 }

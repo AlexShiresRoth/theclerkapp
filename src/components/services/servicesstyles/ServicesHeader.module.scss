@@ -9,12 +9,7 @@
 	align-items: center;
 	min-height: 100vh;
 	& .title__container {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		margin: 4rem 0;
-		animation: fadein 0.6s linear forwards;
+		@include title-container;
 		& h1 {
 			font-family: 'Tangerine', Verdana, Geneva, Tahoma, sans-serif;
 			color: $brand-brown;
@@ -75,27 +70,24 @@
 @media screen and (max-width: 700px) {
 	.header {
 		& .title__container {
+			@include title-container-small;
 			& h1 {
 				@include header-small;
-
-				&::before {
-					content: '';
-					width: 7rem;
-					height: 0.2rem;
-					display: block;
-					background: $brand-accent;
-				}
-				&::after {
-					content: '';
-					width: 7rem;
-					height: 0.2rem;
-					display: block;
-					background: $brand-accent;
-				}
 			}
 			& p {
 				@include paragraph-secondary-small;
 			}
 		}
+	}
+}
+@keyframes fadein {
+	0% {
+		opacity: 0;
+	}
+	90% {
+		opacity: 0.4;
+	}
+	100% {
+		opacity: 1;
 	}
 }

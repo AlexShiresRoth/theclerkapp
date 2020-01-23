@@ -13,15 +13,7 @@
 	flex-direction: column;
 	justify-content: space-around;
 	& .title__container {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		position: relative;
-		z-index: 4;
-		margin: 4rem 0 0 0;
-		opacity: 0;
-		animation: fadein 0.6s linear forwards;
+		@include title-container;
 		& h1 {
 			font-family: 'Tangerine', Verdana, Geneva, Tahoma, sans-serif;
 			color: $brand-brown;
@@ -54,11 +46,12 @@
 	}
 }
 
-@media screen and (max-width: 700px){
-	.header{
-		.videos__container{
-			& .title__container{
-				& h1{
+@media screen and (max-width: 700px) {
+	.header {
+		.videos__container {
+			& .title__container {
+				@include title-container-small;
+				& h1 {
 					@include header-small;
 				}
 				& p {

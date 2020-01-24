@@ -1,0 +1,81 @@
+@import "../../../../sass/variables";
+@import "../../../../sass/mixins";
+.header {
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.resources__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  & .title__container {
+    @include title-container;
+    & h1 {
+      @include header-large;
+      &::before {
+        content: "";
+        width: 7rem;
+        height: 0.2rem;
+        display: block;
+        background: $brand-accent;
+      }
+      &::after {
+        content: "";
+        width: 7rem;
+        height: 0.2rem;
+        display: block;
+        background: $brand-accent;
+      }
+    }
+    & p {
+      margin: 0;
+      @include paragraph-secondary;
+    }
+  }
+}
+@media screen and (max-width:700px){
+  .resources__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    & .title__container {
+      @include title-container-small;
+      & h1 {
+        @include header-small;
+        &::before {
+          content: "";
+          width: 7rem;
+          height: 0.2rem;
+          display: block;
+          background: $brand-accent;
+        }
+        &::after {
+          content: "";
+          width: 7rem;
+          height: 0.2rem;
+          display: block;
+          background: $brand-accent;
+        }
+      }
+      & p {
+        margin: 0;
+        @include paragraph-secondary-small;
+      }
+    }
+  }
+}
+@keyframes fadein {
+	0% {
+		opacity: 0;
+	}
+	90% {
+		opacity: 0.4;
+	}
+	100% {
+		opacity: 1;
+	}
+}

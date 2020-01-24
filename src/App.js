@@ -9,6 +9,7 @@ import About from "./components/pages/About";
 import Videos from "./components/pages/Videos";
 import Contact from "./components/pages/Contact";
 import Services from "./components/pages/Services";
+import Resources from "./components/pages/Resources";
 import "./stylesheets/style.css";
 
 const client = new ApolloClient({
@@ -29,6 +30,7 @@ const App = () => {
           <Route exact path="/videos" component={Videos} />
           <Route exact path="/services" component={Services} />
           <Route exact path="/contact" component={Contact} />
+          <Route exact path="/resources" component={Resources} />
         </Switch>
       </Router>
     </ApolloProvider>

@@ -47,8 +47,6 @@
 		& .title__container {
 			z-index: 0;
 			& h1 {
-				font-size: 4rem;
-
 				&::before {
 					content: '';
 					width: 7rem;
@@ -63,9 +61,6 @@
 					display: block;
 					background: $brand-accent;
 				}
-			}
-			& p {
-				@include paragraph-secondary-med;
 			}
 		}
 	}

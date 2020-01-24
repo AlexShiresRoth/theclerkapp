@@ -17,7 +17,7 @@ const footer = () => {
 				</div>
 				<div className={footerStyles.column}>
 					<p>©The Clerk of Oxford Company</p>
-					<p>Powered by ASRproductions</p>
+					<p>Powered by AlexRoth productions</p>
 				</div>
 			</div>
 		</footer>

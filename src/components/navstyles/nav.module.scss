@@ -92,6 +92,12 @@
 		gap: 0.5rem;
 		width: 100%;
 		min-height: 3rem;
+		& .mobile__logo {
+			max-width: 5vw;
+			& img {
+				max-width: 20vw;
+			}
+		}
 		& a {
 			color: $brand-text;
 			text-decoration: none;
@@ -180,8 +186,5 @@
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
 		gap: 1rem;
-	}
-	.logo {
-		width: 7rem;
 	}
 }

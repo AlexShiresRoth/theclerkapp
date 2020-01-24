@@ -426,6 +426,7 @@
 
 @media screen and (max-width: 700px) {
 	.service__container {
+		z-index: 4;
 		display: grid;
 		grid-template-columns: 1fr;
 		grid-template-rows: repeat(2, 1fr);

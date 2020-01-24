@@ -10,7 +10,9 @@ body {
 	overflow-x: hidden;
 	background: $brand-blue;
 }
-
+body {
+	z-index: 1;
+}
 main {
 	min-height: 85vh;
 	background: $brand-blue;

@@ -7,11 +7,12 @@
 	scroll-snap-type: y mandatory;
 	scroll-snap-align: start;
 	overflow: hidden;
+	overscroll-behavior: none;
 	max-height: 100vh;
 	scroll-behavior: smooth;
 	box-shadow: 0 0px 5px darken($brand-blue, 15%);
 	transition: all 0.3s ease-in-out;
-	z-index: 1;
+	z-index: 4;
 	&::-webkit-scrollbar {
 		width: 0;
 		visibility: hidden;

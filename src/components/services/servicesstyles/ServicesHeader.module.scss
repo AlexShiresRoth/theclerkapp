@@ -8,6 +8,8 @@
 	justify-content: flex-start;
 	align-items: center;
 	min-height: 100vh;
+	position: relative;
+	z-index: 0;
 	& .title__container {
 		@include title-container;
 		& h1 {
@@ -43,6 +45,7 @@
 @media screen and (max-width: 1300px) {
 	.header {
 		& .title__container {
+			z-index: 0;
 			& h1 {
 				font-size: 4rem;
 

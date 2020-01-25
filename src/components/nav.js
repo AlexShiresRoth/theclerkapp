@@ -24,7 +24,7 @@ const Nav = () => {
     handleResize();
     window.addEventListener("resize", handleResize);
 
-    return () => window.removeEventListener("resize", this.handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const servicesList = (

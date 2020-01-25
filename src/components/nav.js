@@ -1,175 +1,151 @@
+import React, { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
 import { FiMenu, FiX } from "react-icons/fi";
-import React from "react";
-
 import navStyles from "./navstyles/nav.module.scss";
 
-class Nav extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isMobile: true,
-      mobileNavShowing: false
-    };
-  }
-
-  handleResize = () => {
-    this.setState({ isMobile: window.innerWidth < 700 });
+const Nav = () => {
+  const [isMobile, setMobile] = useState(true);
+  const [navState, setNavState] = useState(false);
+  const [startPos, setPos] = useState(null);
+  const handleResize = () => {
+    setMobile(window.innerWidth < 700);
   };
-  handleNavToggle = e => {
-    this.setState({
-      mobileNavShowing: !this.state.mobileNavShowing
-    });
+  const handleNavToggle = e => setNavState(!navState);
+
+  const handleNavSwipeClose = e => {
+    const diff = Math.abs(startPos - e.changedTouches[0].clientX);
+    return e.changedTouches[0].clientX < startPos && diff > 150
+      ? handleNavToggle()
+      : null;
   };
 
-  componentDidMount() {
-    this.handleResize();
-    window.addEventListener("resize", this.handleResize);
-  }
-  componentWillUnmount() {
-    window.removeEventListener("resize", this.handleResize);
-  }
+  useEffect(() => {
+    handleResize();
+    window.addEventListener("resize", handleResize);
 
-  render() {
-    const servicesList = (
-      <div className={navStyles.services__list}>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
+    return () => window.removeEventListener("resize", this.handleResize);
+  }, []);
 
-          <li>
-            <Link to="/services/">Services</Link>
-          </li>
-          <li>
-            <Link to="/videos/">Videos</Link>
-          </li>
-          <li>
-            <Link to="/about/">About</Link>
-          </li>
-          <li>
-            <Link to="/resources/">Resources</Link>
-          </li>
-          <li>
-            <Link to="/contact/">Contact</Link>
-          </li>
-        </ul>
-      </div>
-    );
-
-    const ReservedNav = (
-      <>
-        <NavLink to="/quiz/">Quiz</NavLink>
-        <NavLink to="/resources/">Resources</NavLink>
+  const servicesList = (
+    <div className={navStyles.services__list}>
+      <ul>
         <li>
-          <Link to="/quiz/">Quiz</Link>
+          <Link to="/">Home</Link>
+        </li>
+
+        <li>
+          <Link to="/services/">Services</Link>
+        </li>
+        <li>
+          <Link to="/videos/">Videos</Link>
+        </li>
+        <li>
+          <Link to="/about/">About</Link>
         </li>
         <li>
           <Link to="/resources/">Resources</Link>
         </li>
-      </>
-    );
-    return this.state.isMobile ? (
-      <nav className={navStyles.nav}>
-        <div className={navStyles.mobile__logo}>
-          <img
-            src="https://res.cloudinary.com/snackmanproductions/image/upload/v1574282613/tutoring-site/logo_transparent_background_ewr81c.png"
-            alt="logo"
-          ></img>
-        </div>
-        <div
-          className={navStyles.toggle__box}
-          onClick={e => this.handleNavToggle(e)}
-        >
-          <FiMenu
-            style={
-              this.state.mobileNavShowing
-                ? {
-                    transform: `rotate(180deg)`,
-                    transition: "all .3s ease-in-out"
-                  }
-                : {
-                    transform: `rotate(-180deg)`,
-                    transition: "all .3s ease-in-out"
-                  }
-            }
-          />
-        </div>
-        <div
-          className={
-            this.state.mobileNavShowing
-              ? `${navStyles.sideMenu}`
-              : `${navStyles.sideMenu} ${navStyles.sideMenu__hide}`
-          }
-        >
-          <div className={navStyles.sideMenu__container}>
-            <div
-              className={navStyles.close__box}
-              onClick={e => this.handleNavToggle(e)}
-            >
-              <FiX
-                style={
-                  this.state.mobileNavShowing
-                    ? {
-                        transform: `rotate(180deg)`,
-                        transition: "all .3s ease-in-out"
-                      }
-                    : {
-                        transform: `rotate(-180deg)`,
-                        transition: "all .3s ease-in-out"
-                      }
+        <li>
+          <Link to="/contact/">Contact</Link>
+        </li>
+      </ul>
+    </div>
+  );
+
+  return isMobile ? (
+    <nav className={navStyles.nav}>
+      <div className={navStyles.mobile__logo}>
+        <img
+          src="https://res.cloudinary.com/snackmanproductions/image/upload/v1574282613/tutoring-site/logo_transparent_background_ewr81c.png"
+          alt="logo"
+        ></img>
+      </div>
+      <div className={navStyles.toggle__box} onClick={e => handleNavToggle(e)}>
+        <FiMenu
+          style={
+            navState
+              ? {
+                  transform: `rotate(180deg)`,
+                  transition: "all .3s ease-in-out"
                 }
-              />
-            </div>
-            {servicesList}
-          </div>
-        </div>
-      </nav>
-    ) : (
-      <nav className={navStyles.nav}>
-        <div className={navStyles.nav__left}>
-          <Link to="/">
-            <img
-              src={
-                "https://res.cloudinary.com/snackmanproductions/image/upload/v1574282613/tutoring-site/logo_transparent_background_ewr81c.png"
+              : {
+                  transform: `rotate(-180deg)`,
+                  transition: "all .3s ease-in-out"
+                }
+          }
+        />
+      </div>
+      <div
+        className={
+          navState
+            ? `${navStyles.sideMenu}`
+            : `${navStyles.sideMenu} ${navStyles.sideMenu__hide}`
+        }
+        onTouchStart={e => setPos(e.touches[0].clientX)}
+        onTouchEnd={e => handleNavSwipeClose(e)}
+      >
+        <div className={navStyles.sideMenu__container}>
+          <div
+            className={navStyles.close__box}
+            onClick={e => handleNavToggle(e)}
+          >
+            <FiX
+              style={
+                navState
+                  ? {
+                      transform: `rotate(180deg)`,
+                      transition: "all .3s ease-in-out"
+                    }
+                  : {
+                      transform: `rotate(-180deg)`,
+                      transition: "all .3s ease-in-out"
+                    }
               }
-              className={navStyles.logo}
-              alt="the clerk of oxford company logo"
             />
-          </Link>
+          </div>
+          {servicesList}
         </div>
-        <div className={navStyles.nav__right}>
-          <NavLink exact to="/" activeClassName={navStyles.active}>
-            Home
-          </NavLink>
-          <NavLink exact to="/services" activeClassName={navStyles.active}>
-            Services
-          </NavLink>
-          <NavLink exact to="/videos" activeClassName={navStyles.active}>
-            Videos
-          </NavLink>
-          <NavLink exact to="/about" activeClassName={navStyles.active}>
-            About
-          </NavLink>
-          <NavLink exact to="/resources" activeClassName={navStyles.active}>
-            Resources
-          </NavLink>
-          <NavLink exact to="/contact" activeClassName={navStyles.active}>
-            Contact
-          </NavLink>
-        </div>
-      </nav>
-    );
-  }
-}
-
-Nav.propTypes = {
-  siteTitle: PropTypes.string
+        <div
+          className={navStyles.sideMenu__overlay}
+          onClick={e => setNavState(!navState)}
+        ></div>
+      </div>
+    </nav>
+  ) : (
+    <nav className={navStyles.nav}>
+      <div className={navStyles.nav__left}>
+        <Link to="/">
+          <img
+            src={
+              "https://res.cloudinary.com/snackmanproductions/image/upload/v1574282613/tutoring-site/logo_transparent_background_ewr81c.png"
+            }
+            className={navStyles.logo}
+            alt="the clerk of oxford company logo"
+          />
+        </Link>
+      </div>
+      <div className={navStyles.nav__right}>
+        <NavLink exact to="/" activeClassName={navStyles.active}>
+          Home
+        </NavLink>
+        <NavLink exact to="/services" activeClassName={navStyles.active}>
+          Services
+        </NavLink>
+        <NavLink exact to="/videos" activeClassName={navStyles.active}>
+          Videos
+        </NavLink>
+        <NavLink exact to="/about" activeClassName={navStyles.active}>
+          About
+        </NavLink>
+        <NavLink exact to="/resources" activeClassName={navStyles.active}>
+          Resources
+        </NavLink>
+        <NavLink exact to="/contact" activeClassName={navStyles.active}>
+          Contact
+        </NavLink>
+      </div>
+    </nav>
+  );
 };
-
-Nav.defaultProps = {
-  siteTitle: ``
-};
-
 export default Nav;

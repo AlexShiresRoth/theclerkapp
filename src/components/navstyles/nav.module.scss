@@ -121,7 +121,7 @@
 			height: 100vh;
 			top: 0;
 			display: flex;
-			flex-direction: column;
+			flex-direction: row;
 			width: 100vw;
 			z-index: 9999;
 			transform: translateX(0vw);
@@ -170,6 +170,11 @@
 						}
 					}
 				}
+			}
+			& .sideMenu__overlay{
+				width:50%;
+				height:100vh;
+				
 			}
 		}
 		& .sideMenu__hide {

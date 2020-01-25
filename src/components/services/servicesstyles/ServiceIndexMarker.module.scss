@@ -2,14 +2,14 @@
 
 .index__box {
 	position: fixed;
-	top: 45%;
-	left: 0;
+	top: 90%;
+	left: 45%;
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
 	justify-content: space-around;
 	align-items: center;
-	min-height: 15vh;
-	width: 3vw;
+	min-height: 3vh;
+	width: 15vw;
 	background: transparent;
 	transition: all 0.4s ease-in-out;
 	& .index__marker {
@@ -47,15 +47,8 @@
 
 @media screen and (max-width: 700px) {
 	.index__box {
+		top:5rem;
 		position: fixed;
-		top: 44%;
-		left: 0%;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-around;
-		align-items: center;
-		min-height: 15vh;
-		width: 8vw;
 		background: transparent;
 		transition: all 0.4s ease-in-out;
 		& .index__marker {

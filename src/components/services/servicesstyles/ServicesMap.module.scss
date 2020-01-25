@@ -3,36 +3,42 @@
 .service__container {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
+	min-width:100vw;
 	gap: 1rem;
 	color: $brand-text;
 	justify-items: center;
 	position: relative;
 	z-index: 2;
 	min-height: 100vh;
-	& .arrow__up {
+	& .arrow__right {
 		position: absolute;
 		background: transparent;
 		border: 0px solid transparent;
-		top: 0;
-		left: 50%;
+		top: 30%;
+		left: 90%;
 		z-index: 5;
+		transform: rotate(-90deg);
 		font-size: 5vw;
 		color: $brand-text;
 		opacity: 0.8;
 		margin: 4rem 1rem;
 		transition: all 0.4s ease-in-out;
 		&:hover {
-			transform: scale(1.1);
+			transform: scale(1.1) rotate(-90deg);
 			opacity: 1;
 			cursor: pointer;
 		}
+		&:focus, &:active{
+			outline: 0px solid $brand-blue;
+		}
 	}
-	& .arrow__down {
+	& .arrow__left {
 		position: absolute;
 		background: transparent;
 		border: 0px solid transparent;
-		bottom: 0;
-		left: 50%;
+		top: 36%;
+		left: 0%;
+		transform: rotate(-90deg);
 		z-index: 5;
 		font-size: 5vw;
 		color: $brand-text;
@@ -40,9 +46,12 @@
 		margin: 1rem;
 		transition: all 0.4s ease-in-out;
 		&:hover {
-			transform: scale(1.1);
+			transform: scale(1.1) rotate(-90deg);
 			opacity: 1;
 			cursor: pointer;
+		}
+		&:focus, &:active{
+			outline: 0px solid $brand-blue;
 		}
 	}
 	& .img__overlay {
@@ -290,12 +299,6 @@
 		position: relative;
 		z-index: 2;
 		min-height: 100vh;
-		& .arrow__up {
-			left: 90%;
-		}
-		& .arrow__down {
-			left: 90%;
-		}
 		& .service__heading {
 			display: flex;
 			flex-direction: column;
@@ -430,6 +433,44 @@
 		display: grid;
 		grid-template-columns: 1fr;
 		grid-template-rows: repeat(2, 1fr);
+		& .arrow__right {
+			position: absolute;
+			background: transparent;
+			border: 0px solid transparent;
+			top: 45%;
+			left: 85%;
+			z-index: 5;
+			transform: rotate(-90deg);
+			font-size: 15vw;
+			color: $brand-text;
+			opacity: 0.8;
+			margin: 0;
+			transition: all 0.4s ease-in-out;
+			&:hover {
+				transform: scale(1.1) rotate(-90deg);
+				opacity: 1;
+				cursor: pointer;
+			}
+		}
+		& .arrow__left {
+			position: absolute;
+			background: transparent;
+			border: 0px solid transparent;
+			top: 45%;
+			left: 0%;
+			transform: rotate(-90deg);
+			z-index: 5;
+			font-size: 15vw;
+			color: $brand-text;
+			opacity: 0.8;
+			margin: 0;
+			transition: all 0.4s ease-in-out;
+			&:hover {
+				transform: scale(1.1) rotate(-90deg);
+				opacity: 1;
+				cursor: pointer;
+			}
+		}
 		& .service__list {
 			display: flex;
 			flex-direction: column;
@@ -455,22 +496,7 @@
 				width: 40vw;
 			}
 		}
-		& .arrow__up {
-			position: absolute;
-			top: 4rem;
-			left: 80%;
-			z-index: 5;
-			font-size: 15vw;
-			color: $brand-text;
-			opacity: 0.8;
-			margin: 0;
-		}
-		& .arrow__down {
-			left: 80%;
-			margin: 0;
-			font-size: 15vw;
-			bottom: 5%;
-		}
+		
 		&:nth-child(2) {
 			& .service__heading {
 				justify-self: center;

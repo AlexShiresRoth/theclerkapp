@@ -9,7 +9,7 @@ import ServicesMap from "./ServicesMap";
 const ServicesController = () => {
   const [containerStyle, setContainerStyle] = useState({
     position: "",
-    top: "0px"
+    left: "0px"
   });
   const [currentIndex, setCurrentIndex] = useState(0);
   const [intersecting, setIntersecting] = useState(false);
@@ -18,26 +18,28 @@ const ServicesController = () => {
 
   const scrollServicesUp = (e, i) => {
     e.stopPropagation();
-    setCurrentIndex(i - 1);
+
     if (serviceRef.current && intersecting) {
-      serviceRef.current.scrollTop = serviceRef.current.scrollTop -= serviceRef.current.getBoundingClientRect().height;
+      serviceRef.current.scrollLeft = serviceRef.current.scrollLeft -= serviceRef.current.getBoundingClientRect().width;
     }
+    setCurrentIndex(i - 1);
   };
   const scrollServicesDown = (e, i) => {
     e.stopPropagation();
-    setCurrentIndex(i + 1);
     if (serviceRef.current && intersecting) {
-      serviceRef.current.scrollTop = serviceRef.current.scrollTop += serviceRef.current.getBoundingClientRect().height;
+      serviceRef.current.scrollLeft = serviceRef.current.scrollLeft += serviceRef.current.getBoundingClientRect().width;
     }
+    setCurrentIndex(i + 1);
   };
 
   const breakFromFixedPosition = e => {
     if (e) e.stopPropagation();
     //restart index on exit
     setCurrentIndex(0);
+    if (serviceRef.current) serviceRef.current.scrollLeft = 0;
     setContainerStyle({
       position: "relative",
-      top: "0"
+      left: "0"
     });
 
     window.scrollTo({
@@ -62,13 +64,13 @@ const ServicesController = () => {
           setCurrentIndex(0);
           setContainerStyle({
             position: "fixed",
-            top: "0rem"
+            left: "0rem"
           });
           setIntersecting(true);
         } else {
           setContainerStyle({
             position: "relative",
-            top: ""
+            left: ""
           });
           setIntersecting(false);
         }

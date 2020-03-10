@@ -18,6 +18,12 @@ export const VideosMap = () => {
               {video}
             </div>
           ))}
+          <iframe
+            src="https://www.showme.com/sma/embed/?s=WyBexPM"
+            width="578"
+            height="433"
+            frameborder="0"
+          ></iframe>
         </div>
       </div>
     );

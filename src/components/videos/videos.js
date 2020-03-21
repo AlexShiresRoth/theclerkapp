@@ -8,7 +8,7 @@ export const videos = [
 				url: 'https://www.showme.com/sh?h=V3mq7fs',
 			},
 			{
-				title: 'Algebra 1 tape 2 # 6-10',
+				title: 'Algebra 1 tape 2 #6-10',
 				src: 'https://s3.amazonaws.com/media1.showme.com/2020/03/20/11/xKAY88W_ShowMe.mp4',
 				url: 'https://www.showme.com/sh?h=xKAY88W',
 			},

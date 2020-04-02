@@ -1,16 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
+import React, { useState } from 'react';
 import axios from 'axios';
+import ContactModal from './ContactModal';
 import formStyles from './contactstyles/ContactForm.module.scss';
+import LoadingSpinner from './LoadingSpinner';
 
-const ContactForm = props => {
+const ContactForm = () => {
 	const [inputs, setInputs] = useState({
 		name: '',
 		email: '',
 		subject: '',
 		message: '',
 	});
-	const [loading, setLoadingState] = useState(false);
+
+	const [isLoading, setLoading] = useState(false);
+	const [modalMsg, setModalMsg] = useState({
+		type: '',
+		msg: '',
+	});
 
 	const onChange = e => {
 		if (e) e.preventDefault();
@@ -24,9 +30,9 @@ const ContactForm = props => {
 
 		const corsAnywhere = 'https://cors-anywhere.herokuapp.com/';
 
-		setLoadingState(true);
+		setLoading(true);
 
-		const res = await axios({
+		return await axios({
 			method: 'POST',
 			url: `${corsAnywhere}https://asrserver.herokuapp.com/api/clerkapp/send-email?email=${email}&name=${name}&subject=${subject}&message=${message}`,
 			data: {
@@ -35,13 +41,46 @@ const ContactForm = props => {
 					'Content-Type': 'application/x-www-form-urlencoded',
 				},
 			},
-		});
+		})
+			.then(res => {
+				console.log(res.data.msg);
+				setLoading(false);
+				setModalMsg({
+					type: 'success',
+					msg: res.data.msg,
+				});
 
-		console.log(res);
+				setTimeout(() => {
+					setInputs({
+						name: '',
+						email: '',
+						subject: '',
+						message: '',
+					});
+					setModalMsg({
+						type: '',
+						msg: '',
+					});
+				}, 6000);
+			})
+			.catch(err => {
+				setLoading(false);
+				setModalMsg({
+					type: 'error',
+					msg: err.response.data.msg,
+				});
+				setTimeout(() => {
+					setModalMsg({
+						type: '',
+						msg: '',
+					});
+				}, 6000);
+			});
 	};
 
 	return (
 		<div className={formStyles.container}>
+			{isLoading ? <LoadingSpinner /> : <ContactModal msg={modalMsg} />}
 			<form className={formStyles.form} onSubmit={e => formSubmit(e)}>
 				<div className={formStyles.input__row}>
 					<label>Name</label>
@@ -94,7 +133,5 @@ const ContactForm = props => {
 		</div>
 	);
 };
-
-ContactForm.propTypes = {};
 
 export default ContactForm;

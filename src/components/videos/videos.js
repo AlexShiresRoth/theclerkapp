@@ -33,6 +33,11 @@ export const videos = [
 		category: 'ACT Math',
 		videos: [
 			{
+				title: 'ACT math tape 1 Real ACT test one #1-10',
+				src: 'https://s3.amazonaws.com/media1.showme.com/2020/04/02/11/SKSv0Ii_ShowMe.mp4',
+				url: 'showme.com/sh?h=SKSv0Ii',
+			},
+			{
 				title: 'ACT math tape 2 Real ACT test one #11-20',
 				src: 'https://s3.amazonaws.com/media1.showme.com/2020/04/02/12/MXujwRM_ShowMe.mp4',
 				url: 'https://www.showme.com/sh?h=MXujwRM',

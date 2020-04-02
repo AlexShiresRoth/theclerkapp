@@ -1,0 +1,40 @@
+.modal {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 3rem;
+	width: 50%;
+	border-radius: 5px;
+	animation: fadein 1s ease linear forwards;
+	& p {
+		font-size: 1.2vw;
+		color: #fff;
+	}
+}
+.error {
+	background: rgba(190, 37, 37, 0.4);
+	animation: fadeout 1s linear forwards;
+	animation-delay: 5s;
+}
+.success {
+	background: rgba(93, 197, 8, 0.4);
+	animation: fadeout 1s linear forwards;
+	animation-delay: 5s;
+}
+
+@keyframes fadein {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+@keyframes fadeout {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}

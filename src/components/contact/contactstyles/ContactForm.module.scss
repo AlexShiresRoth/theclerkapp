@@ -15,33 +15,47 @@
 		background: darken($brand-blue, 10%);
 		padding: 2vh 2vw;
 		margin: 5vh 5vw;
-		width: 40vw;
+		min-width: 30vw;
 		& .input__row {
 			display: flex;
 			flex-direction: column;
 			margin: 1vh 0;
 			& label {
-				font-size: 2vw;
+				font-size: 1.5vw;
 				color: $brand-brown;
 				font-weight: 300;
 				font-family: 'EB Garamond';
 			}
 			& input {
-				padding: 2vh 1vw;
+				padding: 0.5rem 1rem;
 				background: transparent;
 				border: 2px solid $brand-blue;
 				color: $brand-text;
+				font-size: 16px;
 				transition: all 0.3s ease-in-out;
+
 				&:hover {
 					border: 2px solid lighten($brand-blue, 5%);
 				}
 			}
+			& input:-webkit-autofill,
+			input:-webkit-autofill:hover,
+			input:-webkit-autofill:focus,
+			textarea:-webkit-autofill,
+			textarea:-webkit-autofill:hover,
+			textarea:-webkit-autofill:focus {
+				border: 2px solid $brand-blue;
+				-webkit-text-fill-color: $brand-brown;
+				-webkit-box-shadow: 0 0 0px 0px transparent;
+				transition: background-color 5000s ease-in-out 0s;
+			}
 			& textarea {
-				height: 25vh;
-				padding: 2vh 2vw;
+				height: 15vh;
+				padding: 1rem;
 				background: transparent;
 				border: 2px solid $brand-blue;
 				color: $brand-text;
+				font-size: 16px;
 				transition: all 0.3s ease-in-out;
 				&:hover {
 					border: 2px solid lighten($brand-blue, 5%);
@@ -49,9 +63,9 @@
 			}
 			& button {
 				background: $brand-blue;
-				padding: 2vh 2vw;
+				padding: 1rem;
 				color: $brand-text;
-				font-size: 2vw;
+				font-size: 1.5vw;
 				font-family: 'EB Garamond';
 				border: 1px solid $brand-blue;
 				transition: all 0.3s ease-in-out;

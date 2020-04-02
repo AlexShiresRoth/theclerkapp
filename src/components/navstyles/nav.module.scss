@@ -18,12 +18,21 @@
 		text-decoration: none;
 		font-family: 'Raleway', sans-serif;
 	}
+	& .mobile__logo {
+		max-width: 0;
+		& img {
+			max-width: 0;
+		}
+	}
+	& .sideMenu {
+		visibility: hidden;
+	}
 }
 .nav__left {
 	margin-left: 1rem;
 }
 .logo {
-	width: 5rem;
+	max-width: 5rem;
 }
 .nav__right {
 	display: grid;
@@ -95,7 +104,7 @@
 		& .mobile__logo {
 			max-width: 5vw;
 			& img {
-				max-width: 20vw;
+				max-width: 5vw;
 			}
 		}
 		& a {
@@ -171,10 +180,9 @@
 					}
 				}
 			}
-			& .sideMenu__overlay{
-				width:50%;
-				height:100vh;
-				
+			& .sideMenu__overlay {
+				width: 50%;
+				height: 100vh;
 			}
 		}
 		& .sideMenu__hide {

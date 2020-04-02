@@ -1,0 +1,17 @@
+@import '../../../../sass/variables';
+
+.spinner {
+	border-top: 2px solid $brand-brown;
+	border-bottom: 2px solid $brand-brown;
+	border-radius: 50%;
+	height: 2rem;
+	width: 2rem;
+	display: block;
+	animation: spin 0.5s linear infinite;
+}
+
+@keyframes spin {
+	100% {
+		transform: rotate(360deg);
+	}
+}

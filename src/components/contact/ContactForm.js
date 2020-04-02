@@ -21,12 +21,28 @@ const ContactForm = props => {
 
 	const formSubmit = async e => {
 		if (e) e.preventDefault();
-		await axios.post(`https://asrserver.herokuapp.com/`);
+
+		const corsAnywhere = 'https://cors-anywhere.herokuapp.com/';
+
+		setLoadingState(true);
+
+		const res = await axios({
+			method: 'POST',
+			url: `${corsAnywhere}https://asrserver.herokuapp.com/api/clerkapp/send-email?email=${email}&name=${name}&subject=${subject}&message=${message}`,
+			data: {
+				headers: {
+					'Access-Control-Allow-Origin': 'http://localhost:3000/',
+					'Content-Type': 'application/x-www-form-urlencoded',
+				},
+			},
+		});
+
+		console.log(res);
 	};
 
 	return (
 		<div className={formStyles.container}>
-			<form className={formStyles.form}>
+			<form className={formStyles.form} onSubmit={e => formSubmit(e)}>
 				<div className={formStyles.input__row}>
 					<label>Name</label>
 					<input
@@ -72,7 +88,7 @@ const ContactForm = props => {
 					/>
 				</div>
 				<div className={formStyles.input__row}>
-					<button>Submit</button>
+					<button onClick={e => formSubmit(e)}>Submit</button>
 				</div>
 			</form>
 		</div>

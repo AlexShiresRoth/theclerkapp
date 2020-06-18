@@ -1,4 +1,4 @@
-import { readingSvg, mathSvg, writingSvg } from './servicesstyles/servicesSvgs';
+import { readingSvg, mathSvg, writingSvg } from './servicesSvgs';
 
 export const services = [
 	{

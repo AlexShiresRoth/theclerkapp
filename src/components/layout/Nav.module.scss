@@ -1,7 +1,7 @@
 @import '../../../sass/variables';
 
 .nav {
-	background: darken($brand-blue, 5%);
+	background: $brand-dark-blue;
 	z-index: 99999999;
 	position: fixed;
 	display: flex;
@@ -9,9 +9,8 @@
 	justify-content: space-between;
 	align-items: center;
 	width: 100%;
-	height: 4rem;
-	min-height: 4rem;
-	box-shadow: 0 2px 2px darken($brand-blue, 10%);
+	min-height: 5rem;
+	box-shadow: 0 1px 5px darken($brand-dark-blue, 10%);
 	& a {
 		font-size: 1.1rem;
 		color: $brand-text;
@@ -32,7 +31,7 @@
 	margin-left: 1rem;
 }
 .logo {
-	max-width: 5rem;
+	max-width: 8rem;
 }
 .nav__right {
 	display: grid;

@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import { FiMenu, FiX } from 'react-icons/fi';
-import navStyles from './navstyles/nav.module.scss';
+import navStyles from './Nav.module.scss';
 
 const Nav = () => {
 	const [isMobile, setMobile] = useState(true);
 	const [navState, setNavState] = useState(false);
 	const [startPos, setPos] = useState(null);
+
 	const handleResize = () => {
 		setMobile(window.innerWidth < 700);
 	};
-	const handleNavToggle = e => setNavState(!navState);
+	const handleNavToggle = (e) => setNavState(!navState);
 
-	const handleNavSwipeClose = e => {
+	const handleNavSwipeClose = (e) => {
 		const diff = Math.abs(startPos - e.changedTouches[0].clientX);
 		return e.changedTouches[0].clientX < startPos && diff > 50 ? handleNavToggle() : null;
 	};
@@ -32,9 +32,6 @@ const Nav = () => {
 					<Link to="/">Home</Link>
 				</li>
 
-				<li>
-					<Link to="/services/">Services</Link>
-				</li>
 				<li>
 					<Link to="/videos/">Videos</Link>
 				</li>
@@ -59,7 +56,7 @@ const Nav = () => {
 					alt="logo"
 				></img>
 			</div>
-			<div className={navStyles.toggle__box} onClick={e => handleNavToggle(e)}>
+			<div className={navStyles.toggle__box} onClick={(e) => handleNavToggle(e)}>
 				<FiMenu
 					style={
 						navState
@@ -76,11 +73,11 @@ const Nav = () => {
 			</div>
 			<div
 				className={navState ? `${navStyles.sideMenu}` : `${navStyles.sideMenu} ${navStyles.sideMenu__hide}`}
-				onTouchStart={e => setPos(e.touches[0].clientX)}
-				onTouchEnd={e => handleNavSwipeClose(e)}
+				onTouchStart={(e) => setPos(e.touches[0].clientX)}
+				onTouchEnd={(e) => handleNavSwipeClose(e)}
 			>
 				<div className={navStyles.sideMenu__container}>
-					<div className={navStyles.close__box} onClick={e => handleNavToggle(e)}>
+					<div className={navStyles.close__box} onClick={(e) => handleNavToggle(e)}>
 						<FiX
 							style={
 								navState
@@ -97,7 +94,7 @@ const Nav = () => {
 					</div>
 					{servicesList}
 				</div>
-				<div className={navStyles.sideMenu__overlay} onClick={e => setNavState(!navState)}></div>
+				<div className={navStyles.sideMenu__overlay} onClick={(e) => setNavState(!navState)}></div>
 			</div>
 		</nav>
 	) : (
@@ -117,9 +114,7 @@ const Nav = () => {
 				<NavLink exact to="/" activeClassName={navStyles.active}>
 					Home
 				</NavLink>
-				<NavLink exact to="/services" activeClassName={navStyles.active}>
-					Services
-				</NavLink>
+
 				<NavLink exact to="/videos" activeClassName={navStyles.active}>
 					Videos
 				</NavLink>

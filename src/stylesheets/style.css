@@ -1,4 +1,28 @@
 @import url("https://fonts.googleapis.com/css?family=EB+Garamond|Cormorant+Garamond|Muli|Tangerine&display=swap");
+@keyframes fadein {
+  0% {
+    opacity: 0; }
+  90% {
+    opacity: 0.4; }
+  100% {
+    opacity: 1; } }
+
+@keyframes slideinfromright {
+  0% {
+    opacity: 0; }
+  90% {
+    opacity: 0.5; }
+  100% {
+    opacity: 1; } }
+
+@keyframes slideinfromleft {
+  0% {
+    opacity: 0; }
+  90% {
+    opacity: 0.5; }
+  100% {
+    opacity: 1; } }
+
 html,
 body {
   padding: 0;
@@ -11,7 +35,6 @@ body {
   z-index: 0; }
 
 main {
-  min-height: 85vh;
   background: #557a95; }
 
 footer {

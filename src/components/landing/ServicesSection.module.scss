@@ -1,0 +1,220 @@
+@import '../../../sass/variables';
+@import '../../../sass/mixins';
+
+.section {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	position: relative;
+	padding: 4rem;
+	& .heading {
+		@include title-container;
+		z-index: 2;
+		& h2 {
+			@include header-large;
+			&::before {
+				content: '';
+				width: 7rem;
+				height: 0.2rem;
+				display: block;
+				background: $brand-accent;
+			}
+			&::after {
+				content: '';
+				width: 7rem;
+				height: 0.2rem;
+				display: block;
+				background: $brand-accent;
+			}
+		}
+		& p {
+			margin: 0;
+			@include paragraph-secondary;
+		}
+	}
+	& .grid {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: repeat(3, 1fr);
+		gap: 10rem;
+		margin-top: 7rem;
+		z-index: 0;
+		& .row {
+			display: grid;
+			grid-template-columns: repeat(2, auto);
+			position: relative;
+			grid-template-rows: 1fr;
+			gap: 10rem;
+			align-items: center;
+			& .svg_container {
+				width: 25vw;
+				z-index: 2;
+			}
+
+			& .box {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				z-index: 2;
+				position: relative;
+				& .bg_svg {
+					position: absolute;
+					width: 45vw;
+					z-index: 0;
+				}
+				& h3 {
+					color: $brand-accent;
+					font-size: 4rem;
+					z-index: 2;
+					margin: 0;
+					&::after {
+						content: '';
+						display: block;
+						height: 2px;
+						width: 100%;
+						margin-top: 0.5rem;
+						background: $brand-brown;
+					}
+				}
+				& p {
+					color: $brand-text;
+					font-size: 2.5rem;
+					max-width: 20vw;
+					text-align: center;
+					z-index: 2;
+				}
+				& button {
+					height: 3rem;
+					width: 10rem;
+					background: $brand-brown;
+					border: 1px solid $brand-brown;
+					color: $brand-text;
+					z-index: 2;
+					transition: all 0.3s ease;
+					font-size: 1.2rem;
+					&:hover {
+						cursor: pointer;
+						box-shadow: 0 1px 15px darken($brand-brown, 10%);
+						background: darken($brand-brown, 5%);
+						border: 1px solid darken($brand-brown, 5%);
+					}
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 900px) {
+	.section {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 100%;
+		position: relative;
+		padding: 2rem 0;
+		margin-bottom: 2rem;
+		& .heading {
+			@include title-container;
+			z-index: 2;
+			margin: 1rem 0;
+			& h2 {
+				@include header-small;
+				text-align: center;
+				&::before {
+					content: '';
+					width: 7rem;
+					height: 0.2rem;
+					display: block;
+					background: $brand-accent;
+				}
+				&::after {
+					content: '';
+					width: 7rem;
+					height: 0.2rem;
+					display: block;
+					background: $brand-accent;
+				}
+			}
+			& p {
+				margin: 0;
+				@include paragraph-secondary-small;
+			}
+		}
+		& .grid {
+			display: grid;
+			grid-template-columns: 1fr;
+			grid-template-rows: repeat(3, 1fr);
+			gap: 6rem;
+			margin-top: 0rem;
+			z-index: 0;
+			& .row {
+				display: grid;
+				grid-template-columns: 1fr;
+				position: relative;
+				grid-template-rows: repeat(2, auto);
+				gap: 1rem;
+				align-items: center;
+				justify-items: center;
+				& .svg_container {
+					width: 80vw;
+					z-index: 2;
+					order: 1;
+				}
+
+				& .box {
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					justify-content: center;
+					z-index: 2;
+					position: relative;
+					order: 2;
+					& .bg_svg {
+						position: absolute;
+						width: 100vw;
+						z-index: 0;
+					}
+					& h3 {
+						color: $brand-accent;
+						font-size: 2rem;
+						z-index: 2;
+						margin: 0;
+						&::after {
+							content: '';
+							display: block;
+							height: 2px;
+							width: 100%;
+							margin-top: 0.5rem;
+							background: $brand-brown;
+						}
+					}
+					& p {
+						color: $brand-text;
+						font-size: 1.5rem;
+						max-width: 60%;
+						text-align: center;
+						z-index: 2;
+					}
+					& button {
+						height: 3rem;
+						width: 10rem;
+						background: $brand-brown;
+						border: 1px solid $brand-brown;
+						color: $brand-text;
+						z-index: 2;
+						transition: all 0.3s ease;
+						font-size: 1.2rem;
+						&:hover {
+							cursor: pointer;
+							box-shadow: 0 1px 15px darken($brand-brown, 10%);
+							background: darken($brand-brown, 5%);
+							border: 1px solid darken($brand-brown, 5%);
+						}
+					}
+				}
+			}
+		}
+	}
+}

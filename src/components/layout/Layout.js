@@ -1,7 +1,7 @@
 import React from 'react';
-import '../stylesheets/style.css';
-import Nav from './nav';
-import Footer from './footer';
+import '../../stylesheets/style.css';
+import Nav from './Nav';
+import Footer from './Footer';
 const layout = ({ children }) => {
 	return (
 		<>
@@ -11,7 +11,5 @@ const layout = ({ children }) => {
 		</>
 	);
 };
-
-layout.propTypes = {};
 
 export default layout;

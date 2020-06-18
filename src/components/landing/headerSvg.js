@@ -1,5 +1,5 @@
 import React from 'react';
-import headerStyles from './header.module.scss';
+import headerStyles from './Header.module.scss';
 export const headerSvg = (
 	<svg
 		id="e7b3b0c3-1e4f-480c-906c-c03021e90d10"

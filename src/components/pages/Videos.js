@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import Layout from '../layout';
+import Layout from '../layout/Layout';
 import VideosHeader from '../videos/VideosHeader';
 import { VideosMap } from '../videos/VideosMap';
 const Videos = () => {

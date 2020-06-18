@@ -1,6 +1,6 @@
 @mixin paragraph-secondary {
 	color: $brand-text;
-	font-size: 2vw;
+	font-size: 2rem;
 	font-family: 'EB Garamond', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva,
 		Verdana, sans-serif;
 	max-width: 50vw;
@@ -26,8 +26,9 @@
 @mixin header-large {
 	font-family: 'Tangerine', Verdana, Geneva, Tahoma, sans-serif;
 	color: $brand-brown;
-	font-size: 5vw;
+	font-size: 6rem;
 	margin: 0;
+	margin-bottom: 1rem;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
@@ -46,7 +47,7 @@
 	align-items: center;
 	position: relative;
 	z-index: 0;
-	margin: 10vh 0 0 0;
+	margin: 6rem 0;
 	opacity: 0;
 	animation: fadein 0.6s linear forwards;
 }
@@ -60,4 +61,41 @@
 	margin: 7vh 0;
 	opacity: 0;
 	animation: fadein 0.6s linear forwards;
+}
+
+@keyframes fadein {
+	0% {
+		opacity: 0;
+	}
+	90% {
+		opacity: 0.4;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes slideinfromright {
+	0% {
+		opacity: 0;
+	}
+	90% {
+		opacity: 0.5;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes slideinfromleft {
+	0% {
+		opacity: 0;
+	}
+	90% {
+		opacity: 0.5;
+	}
+
+	100% {
+		opacity: 1;
+	}
 }

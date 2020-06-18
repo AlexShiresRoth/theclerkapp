@@ -2,7 +2,7 @@
 
 .footer {
 	display: grid;
-	grid-template-columns: repeat(2, 1fr);
+	grid-template-columns: repeat(3, 1fr);
 	grid-template-rows: 1fr;
 	justify-items: center;
 	align-content: center;
@@ -13,11 +13,17 @@
 	}
 	& a {
 		text-decoration: none;
-		color: lighten($brand-blue, 15%);
+		color: $brand-text;
 	}
 	& span {
 		font-family: 'Raleway', sans-serif;
 		color: $brand-text;
+		display: flex;
+		align-items: center;
+		& svg {
+			font-size: 1.2rem;
+			margin-right: 0.5rem;
+		}
 	}
 }
 .column {
@@ -25,9 +31,11 @@
 	flex-direction: column;
 
 	& h3 {
-		color: $brand-text;
+		color: $brand-accent;
 		border-bottom: 1px solid lighten($brand-blue, 5%);
 		padding: 0.2rem 0;
+		font-size: 1.2rem;
+		text-transform: uppercase;
 	}
 }
 

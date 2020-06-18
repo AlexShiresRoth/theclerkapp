@@ -1,185 +1,143 @@
-@import "../../../../sass/variables";
+@import '../../../../sass/variables';
 
 .container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  padding: 5vh 5vw;
-  & .video__container {
-    margin: 2vh 2vw;
-    display: flex;
-    flex-direction: column;
-    & .slider__heading {
-      display: flex;
-      flex-direction: row;
-      & h3 {
-        color: $brand-text;
-        font-size: 5vw;
-        margin: 0.5rem;
-      }
-    }
-    & .video__slider {
-      background: darken($brand-blue, 5%);
-      display: flex;
-      flex-direction: row;
-      justify-content: flex-start;
-      gap: 1rem;
-      height: 50vh;
-      max-width: 100%;
-      padding: 1rem;
-      box-shadow: 0px 5px 5px darken($brand-blue, 10%);
-      overflow-x: hidden;
-      overflow-y: hidden;
-      & .video {
-        display: flex;
-        flex-direction: column;
-        margin: 1rem;
-        background: $brand-blue;
-        box-shadow: 0 10px 10px darken($brand-blue, 10%);
-        min-width: 20vw;
-        max-width: 25vw;
-        & video {
-          width: 100%;
-          overflow: hidden;
-        }
-        & .caption {
-          display: grid;
-          grid-template-rows: repeat(2, auto);
-          gap: 0.5rem;
-          padding: 1rem 0.5rem;
-          & .col {
-            font-family: "Muli", sans-serif;
-            padding: 0.5rem;
-            & a {
-              color: $brand-text;
-              text-decoration: none;
-              transition: all 0.3s ease-in-out;
-              font-size: 0.8vw;
-              font-family: "Muli", sans-serif;
-              & span {
-                font-size: 1vw;
-                color: $brand-brown;
-              }
-              &:hover {
-                color: darken($brand-text, 5%);
-              }
-            }
-            & span {
-              color: $brand-text;
-            }
-          }
-          & .col:nth-child(1) {
-            border-bottom: 1px solid lighten($brand-blue, 5%);
-          }
-        }
-      }
-    }
-    & .slider__controls {
-      width: 100%;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-around;
-      background: $brand-blue;
-      box-shadow: 0 5px 5px darken($brand-blue, 5%);
-      padding: 1rem 0;
-      & p {
-        color: $brand-text;
-        font-family: "Muli";
-      }
-      & button {
-        background: transparent;
-        border: 1px solid darken($brand-blue, 5%);
-        color: lighten($brand-blue, 15%);
-        border-radius: 50%;
-        transition: all 0.3s ease-in-out;
-        & svg {
-          font-size: 3vw;
-        }
-        &:hover {
-          border: 1px solid transparent;
-          box-shadow: 0 5px 5px darken($brand-blue, 10%);
-          cursor: pointer;
-        }
-      }
-    }
-  }
-  & .video__container:nth-child(even) {
-    & .slider__heading {
-      justify-content: flex-end;
-    }
-  }
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	padding: 2rem;
+	& .video__container {
+		margin: 2rem;
+		display: flex;
+		flex-direction: column;
+		& .slider__heading {
+			display: flex;
+			flex-direction: row;
+			& h3 {
+				color: $brand-text;
+				font-size: 5vw;
+				margin: 0.5rem;
+			}
+		}
+		& .video__slider {
+			background: darken($brand-blue, 5%);
+			display: flex;
+			flex-direction: row;
+			justify-content: flex-start;
+			gap: 1rem;
+			max-width: 100%;
+			box-shadow: 0px 5px 5px darken($brand-blue, 10%);
+			overflow-x: scroll;
+			overflow-y: hidden;
+			&::-webkit-scrollbar {
+				background: transparent;
+			}
+		}
+		& .slider__controls {
+			width: 100%;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: space-around;
+			background: $brand-blue;
+			box-shadow: 0 5px 5px darken($brand-blue, 5%);
+			padding: 1rem 0;
+			& p {
+				color: $brand-text;
+				font-family: 'Muli';
+			}
+			& button {
+				background: transparent;
+				border: 1px solid darken($brand-blue, 5%);
+				color: lighten($brand-blue, 15%);
+				border-radius: 50%;
+				transition: all 0.3s ease-in-out;
+				& svg {
+					font-size: 3vw;
+				}
+				&:hover {
+					border: 1px solid transparent;
+					box-shadow: 0 5px 5px darken($brand-blue, 10%);
+					cursor: pointer;
+				}
+			}
+		}
+	}
+	& .video__container:nth-child(even) {
+		& .slider__heading {
+			justify-content: flex-end;
+		}
+	}
 }
 @media screen and (max-width: 1300px) {
-  .container {
-    padding: 2vh 2vw;
-    & .video__container {
-      z-index: 0;
-      & .slider__heading {
-        & h3 {
-          color: $brand-text;
-          font-size: 10vw;
-        }
-      }
-      & .video__slider {
-        min-height: 30vh;
-        width: 100%;
-        padding: 0.5rem;
-        & .video {
-          min-width: 30vw;
-          & .caption {
-            padding: 0.5rem;
-            & a {
-              font-size: 2vw;
-            }
-          }
-        }
-      }
-    }
-  }
+	.container {
+		padding: 2rem;
+		& .video__container {
+			z-index: 0;
+			& .slider__heading {
+				& h3 {
+					color: $brand-text;
+					font-size: 10vw;
+				}
+			}
+			& .video__slider {
+				min-height: 30vh;
+				width: 100%;
+				padding: 0rem;
+				& .video {
+					min-width: 15rem;
+					& .caption {
+						padding: 0.5rem;
+						& a {
+							font-size: 2vw;
+						}
+					}
+				}
+			}
+		}
+	}
 }
 
 @media screen and (max-width: 700px) {
-  .container {
-    padding: 1vh 1vw;
-    & .video__container {
-      z-index: 0;
-      & .slider__heading {
-        & h3 {
-          color: $brand-text;
-          font-size: 10vw;
-        }
-      }
-      & .video__slider {
-        min-height: 30vh;
-        width: 100%;
-        overflow-x: scroll;
-        padding: 0.5rem;
-        & .video {
-          min-width: 80vw;
-          & .caption {
-            padding: 0.5rem;
-            & .col {
-              & a {
-                font-size: 4vw;
-                & span {
-                  font-size: 4vw;
-                }
-              }
-            }
-          }
-        }
-      }
-      & .slider__controls {
-        padding: 1rem 0;
-        & p {
-        }
-        & button {
-          & svg {
-            font-size: 9vw;
-          }
-        }
-      }
-    }
-  }
+	.container {
+		padding: 1vh 1vw;
+		& .video__container {
+			z-index: 0;
+			& .slider__heading {
+				& h3 {
+					color: $brand-text;
+					font-size: 10vw;
+				}
+			}
+			& .video__slider {
+				min-height: 30vh;
+				width: 100%;
+				overflow-x: scroll;
+
+				& .video {
+					min-width: 80vw;
+					& .caption {
+						padding: 0.5rem;
+						& .col {
+							& a {
+								font-size: 4vw;
+								& span {
+									font-size: 4vw;
+								}
+							}
+						}
+					}
+				}
+			}
+			& .slider__controls {
+				padding: 1rem 0;
+				& p {
+				}
+				& button {
+					& svg {
+						font-size: 9vw;
+					}
+				}
+			}
+		}
+	}
 }

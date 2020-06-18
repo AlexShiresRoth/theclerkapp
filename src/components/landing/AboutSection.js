@@ -1,9 +1,9 @@
 import React from 'react';
-import aboutStyles from './aboutstyles/AboutHeader.module.scss';
-import aboutContent from '../landing/AboutContent';
+import aboutStyles from './AboutSection.module.scss';
+import aboutContent from './AboutContent';
 import { convertToHtml } from '../reusablefuncs/convertToHtml';
 import LoadingSpinner from '../loader/LoadingSpinner';
-const AboutHeader = () => {
+const AboutSection = () => {
 	const aboutImg = (
 		<figure>
 			<img
@@ -24,7 +24,7 @@ const AboutHeader = () => {
 	);
 
 	return (
-		<section className={aboutStyles.header}>
+		<section className={aboutStyles.section}>
 			<div className={aboutStyles.about__container}>
 				<div className={aboutStyles.title__container}>
 					<h1>About</h1>
@@ -44,4 +44,4 @@ const AboutHeader = () => {
 	);
 };
 
-export default AboutHeader;
+export default AboutSection;

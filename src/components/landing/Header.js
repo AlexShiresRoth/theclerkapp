@@ -1,14 +1,7 @@
 import React from 'react';
-import headerStyles from './headerstyles/header.module.scss';
+import headerStyles from './Header.module.scss';
 import { Link } from 'react-router-dom';
-import {
-	headerSvg,
-	headerWavSvg,
-	virtualSvg,
-	videoSvg,
-	inPersonSvg,
-	alternateHeaderSvg,
-} from './headerstyles/headerSvg';
+import { headerWavSvg, virtualSvg, videoSvg, inPersonSvg, alternateHeaderSvg } from './headerSvg';
 import { FaBookOpen } from 'react-icons/fa';
 import { MdDoneAll } from 'react-icons/md';
 
@@ -31,11 +24,7 @@ class Header extends React.Component {
 				</li>
 				<li>
 					<MdDoneAll />
-					<p>In Person Tutoring</p>
-				</li>
-				<li>
-					<MdDoneAll />
-					<p>lorem ipsum dolor sit amet</p>
+					<p>Meet in-person depending on your availability</p>
 				</li>
 			</ul>
 		);
@@ -48,11 +37,7 @@ class Header extends React.Component {
 				</li>
 				<li>
 					<MdDoneAll />
-					<p>Virtually connect with Zoom</p>
-				</li>
-				<li>
-					<MdDoneAll />
-					<p>lorem ipsum dolor sit amet</p>
+					<p>Virtually connect with Zoom/Skype</p>
 				</li>
 			</ul>
 		);
@@ -61,15 +46,11 @@ class Header extends React.Component {
 			<ul>
 				<li>
 					<MdDoneAll />
-					<p>Meet Online at your convenience</p>
+					<p>Learn by premade tutorial videos</p>
 				</li>
 				<li>
 					<MdDoneAll />
-					<p>Virtually connect with Zoom</p>
-				</li>
-				<li>
-					<MdDoneAll />
-					<p>For one hour or idk</p>
+					<p>Go at your own pace</p>
 				</li>
 			</ul>
 		);

@@ -1,16 +1,18 @@
-@import '../../../../sass/variables';
-@import '../../../../sass/mixins';
-.header {
+@import '../../../sass/variables';
+@import '../../../sass/mixins';
+.section {
 	padding: 4rem 0;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: center;
+	background: $brand-dark-blue;
 }
 .about__container {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
+
 	& .title__container {
 		@include title-container;
 		& h1 {
@@ -39,9 +41,7 @@
 		display: flex;
 		flex-direction: column;
 		position: relative;
-		width: 70vw;
-		background: darken($brand-blue, 5%);
-		box-shadow: 0 4px 4px darken($brand-blue, 10%);
+		width: 60vw;
 	}
 	& .photo__container {
 		z-index: 2;
@@ -106,7 +106,7 @@
 			color: $brand-text;
 			line-height: 2;
 			font-weight: 300;
-			width: 80%;
+			width: 70%;
 			font-family: 'EB Garamond', Garamond, serif;
 			font-size: 1.3rem;
 			&:nth-child(1) {

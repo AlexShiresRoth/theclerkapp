@@ -17,7 +17,7 @@
 		justify-items: center;
 		align-content: center;
 		gap: 2rem;
-		flex:4;
+		flex: 4;
 	}
 	.text__box__left {
 		display: flex;
@@ -105,40 +105,40 @@
 			z-index: 1;
 			position: absolute;
 			bottom: 0;
-			& button:nth-child(1) {
+			& button {
 				width: 15rem;
 				padding: 1rem;
+				font-weight: 300;
+				transition: all 0.3s ease-in-out;
+				font-family: 'EB Garamond', sans-serif, serif;
+				font-size: 1.2rem;
+			}
+			& button:nth-child(1) {
 				background: $brand-brown;
 				margin: 1rem;
 				color: $brand-text;
 				border: 3px solid $brand-brown;
-				font-weight: 300;
-				transition: all 0.3s ease-in-out;
-				font-family: 'EB Garamond', sans-serif, serif;
-				font-size: 1.2rem;
+				box-shadow: 0 1px 5px darken($brand-brown, 5%);
 				&:hover {
 					cursor: pointer;
-					background: $brand-brown;
+					background: darken($brand-brown, 5%);
+					border: 3px solid darken($brand-brown, 5%);
 					color: $brand-text;
-					box-shadow: 0 4px 4px darken($brand-brown, 10%);
+					box-shadow: 0 1px 10px darken($brand-brown, 10%);
 				}
 			}
 			& button:nth-child(2) {
-				width: 15rem;
-				padding: 1rem;
 				background: $brand-accent;
 				margin: 1rem;
 				color: $brand-text;
 				border: 3px solid $brand-accent;
-				font-weight: 300;
-				transition: all 0.3s ease-in-out;
-				font-family: 'EB Garamond', sans-serif, serif;
-				font-size: 1.2rem;
+
+				box-shadow: 0 1px 5px darken($brand-accent, 5%);
 				&:hover {
 					cursor: pointer;
 					background: darken($brand-accent, 5%);
 					border: 3px solid darken($brand-accent, 5%);
-					box-shadow: 0 4px 4px darken($brand-accent, 10%);
+					box-shadow: 0 1px 10px darken($brand-accent, 10%);
 				}
 			}
 		}
@@ -228,7 +228,7 @@
 			animation: fadeinheading 1s linear forwards;
 		}
 		&:nth-child(2) {
-			background: $brand-blue;
+			background: $brand-dark-blue;
 			transition: all 0.4s ease-in-out;
 			align-self: flex-end;
 			opacity: 0;

@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import footerStyles from './Footer.module.scss';
 import { Link } from 'react-router-dom';
 import { MdEmail, MdPhone } from 'react-icons/md';
@@ -33,10 +32,6 @@ const footer = () => {
 			</div>
 		</footer>
 	);
-};
-
-footer.propTypes = {
-	siteTitle: PropTypes.string.isRequired,
 };
 
 export default footer;

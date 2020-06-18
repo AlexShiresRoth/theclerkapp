@@ -5,7 +5,7 @@ import style from './VideoItem.module.scss';
 
 const VideoItem = ({ video, i }) => {
 	return (
-		<div className={style.video} key={i}>
+		<div className={style.video}>
 			<video controls>
 				<source src={video.src} type="video/mp4" />
 				Video Not Supported

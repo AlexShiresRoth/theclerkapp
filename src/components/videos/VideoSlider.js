@@ -39,7 +39,7 @@ const VideoSlider = ({ video, i, arr }) => {
 			</div>
 			<div className={`${style.video__slider} slider`} key={i} ref={sliderRef}>
 				{video.videos.map((video, i) => (
-					<VideoItem video={video} i={i} />
+					<VideoItem video={video} i={i} key={i} />
 				))}
 			</div>
 			<div className={style.slider__controls}>

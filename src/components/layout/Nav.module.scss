@@ -18,9 +18,10 @@
 		font-family: 'Raleway', sans-serif;
 	}
 	& .mobile__logo {
-		max-width: 0;
-		& img {
-			max-width: 0;
+		display: none;
+		& a {
+			color: $brand-brown;
+			font-family: 'Tangerine';
 		}
 	}
 	& .sideMenu {
@@ -28,14 +29,18 @@
 	}
 }
 .nav__left {
-	margin-left: 1rem;
+	margin-left: 3rem;
+	& a {
+		color: $brand-brown;
+		font-family: 'Tangerine';
+		font-size: 2rem;
+		font-weight: 900;
+	}
 }
-.logo {
-	max-width: 8rem;
-}
+
 .nav__right {
 	display: grid;
-	grid-template-columns: repeat(6, 1fr);
+	grid-template-columns: repeat(3, 1fr);
 	grid-template-rows: 1fr;
 	margin-right: 1rem;
 	height: 100%;
@@ -90,26 +95,21 @@
 	}
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 900px) {
 	.nav {
 		z-index: 9999;
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		grid-template-rows: 1fr;
-		align-content: center;
-		gap: 0.5rem;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
 		width: 100%;
-		min-height: 3rem;
+		min-height: 5rem;
 		& .mobile__logo {
-			max-width: 5vw;
-			& img {
-				max-width: 5vw;
+			display: flex;
+			margin-left: 1rem;
+			& a {
+				font-size: 1.6rem;
+				font-weight: 900;
 			}
-		}
-		& a {
-			color: $brand-text;
-			text-decoration: none;
-			font-family: 'Public Sans', sans-serif;
 		}
 		& .toggle__box {
 			justify-self: end;
@@ -193,6 +193,9 @@
 	}
 	.nav__left {
 		margin-left: 1rem;
+		& a {
+			width: 100%;
+		}
 	}
 	.nav__right {
 		display: grid;

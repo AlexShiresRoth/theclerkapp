@@ -9,7 +9,7 @@ const Nav = () => {
 	const [startPos, setPos] = useState(null);
 
 	const handleResize = () => {
-		setMobile(window.innerWidth < 700);
+		setMobile(window.innerWidth < 900);
 	};
 	const handleNavToggle = (e) => setNavState(!navState);
 
@@ -35,12 +35,7 @@ const Nav = () => {
 				<li>
 					<Link to="/videos/">Videos</Link>
 				</li>
-				<li>
-					<Link to="/about/">About</Link>
-				</li>
-				{/* <li>
-					<Link to="/resources/">Resources</Link>
-				</li> */}
+
 				<li>
 					<Link to="/contact/">Contact</Link>
 				</li>
@@ -51,10 +46,7 @@ const Nav = () => {
 	return isMobile ? (
 		<nav className={navStyles.nav}>
 			<div className={navStyles.mobile__logo}>
-				<img
-					src="https://res.cloudinary.com/snackmanproductions/image/upload/v1574282613/tutoring-site/logo_transparent_background_ewr81c.png"
-					alt="logo"
-				></img>
+				<NavLink to="/">The Clerk of Oxford Company</NavLink>
 			</div>
 			<div className={navStyles.toggle__box} onClick={(e) => handleNavToggle(e)}>
 				<FiMenu
@@ -100,15 +92,7 @@ const Nav = () => {
 	) : (
 		<nav className={navStyles.nav}>
 			<div className={navStyles.nav__left}>
-				<Link to="/">
-					<img
-						src={
-							'https://res.cloudinary.com/snackmanproductions/image/upload/v1574282613/tutoring-site/logo_transparent_background_ewr81c.png'
-						}
-						className={navStyles.logo}
-						alt="the clerk of oxford company logo"
-					/>
-				</Link>
+				<NavLink to="/">The Clerk of Oxford Company</NavLink>
 			</div>
 			<div className={navStyles.nav__right}>
 				<NavLink exact to="/" activeClassName={navStyles.active}>
@@ -118,12 +102,7 @@ const Nav = () => {
 				<NavLink exact to="/videos" activeClassName={navStyles.active}>
 					Videos
 				</NavLink>
-				<NavLink exact to="/about" activeClassName={navStyles.active}>
-					About
-				</NavLink>
-				{/* <NavLink exact to="/resources" activeClassName={navStyles.active}>
-          Resources
-        </NavLink> */}
+
 				<NavLink exact to="/contact" activeClassName={navStyles.active}>
 					Contact
 				</NavLink>

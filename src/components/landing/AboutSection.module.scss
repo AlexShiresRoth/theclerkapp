@@ -81,6 +81,7 @@
 			font-size: 2.4rem;
 			color: $brand-text;
 			font-family: 'EB Garamond', Garamond, serif, sans-serif;
+			font-weight: 700;
 			&::after {
 				content: '';
 				width: 6rem;
@@ -101,13 +102,13 @@
 		opacity: 0;
 		animation: slideinfromright 0.8s linear forwards;
 		z-index: 3;
-		margin: 1rem 0;
+		margin: 2rem 0;
 		& p {
 			color: $brand-text;
 			line-height: 2;
 			font-weight: 300;
-			width: 70%;
-			font-family: 'EB Garamond', Garamond, serif;
+			width: 100%;
+			font-family: 'Raleway', Helvetica, sans-serif, serif;
 			font-size: 1.3rem;
 			&:nth-child(1) {
 				display: none;
@@ -156,7 +157,6 @@
 				margin: 1rem;
 				font-size: 2.1rem;
 				color: $brand-text;
-				font-family: 'EB Garamond', Garamond, serif, sans-serif;
 				&::after {
 					content: '';
 					width: 6rem;
@@ -203,7 +203,7 @@
 		}
 	}
 }
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 900px) {
 	.about__container {
 		& .title__container {
 			@include title-container-small;
@@ -253,7 +253,7 @@
 			left: 0;
 			& p {
 				width: 85%;
-				font-size: 1.3rem;
+				font-size: 1rem;
 			}
 		}
 	}

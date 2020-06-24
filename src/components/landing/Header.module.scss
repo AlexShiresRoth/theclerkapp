@@ -1,8 +1,7 @@
 @import '../../../sass/variables';
 
 .header {
-	max-height: 100vh;
-	height: 100vh;
+	min-height: 100vh;
 	width: 100vw;
 	display: flex;
 	flex-direction: column;
@@ -118,7 +117,6 @@
 				margin: 1rem;
 				color: $brand-text;
 				border: 3px solid $brand-brown;
-				box-shadow: 0 1px 5px darken($brand-brown, 5%);
 				&:hover {
 					cursor: pointer;
 					background: darken($brand-brown, 5%);
@@ -132,8 +130,6 @@
 				margin: 1rem;
 				color: $brand-text;
 				border: 3px solid $brand-accent;
-
-				box-shadow: 0 1px 5px darken($brand-accent, 5%);
 				&:hover {
 					cursor: pointer;
 					background: darken($brand-accent, 5%);
@@ -253,11 +249,10 @@
 	}
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 900px) {
 	.header {
-		max-height: 100vh;
-		height: 100vh;
-		justify-content: flex-start;
+		justify-content: space-between;
+		overflow: visible;
 		& .header__grid {
 			display: grid;
 			grid-template-columns: 1fr;
@@ -265,7 +260,8 @@
 			justify-items: center;
 			align-content: flex-start;
 			gap: 0.5rem;
-			margin: 5rem 0;
+			margin: 0;
+			margin-top: 5rem;
 		}
 		& .text__box__left {
 			z-index: 3;
@@ -308,6 +304,7 @@
 		align-items: center;
 		justify-content: center;
 		max-height: 100vh;
+		position: relative;
 		& .item {
 			color: $brand-text;
 			width: 100%;
@@ -318,38 +315,38 @@
 			opacity: 0.8;
 			transition: all 0.3s ease-in-out;
 			align-self: flex-end;
-			height: 8vh;
+			height: 4rem;
 			max-height: 35vh;
 			&:hover {
 				flex-direction: column;
 			}
 			& h3 {
 				font-family: 'EB Garamond', serif, sans-serif;
-				font-size: 5vw;
+				font-size: 1.2rem;
 				letter-spacing: 0.9px;
 			}
 			& svg {
-				font-size: 2vw;
+				font-size: 2rem;
 				margin: 0 0.5rem;
 			}
 			& .video__svg,
 			.virtual__svg,
 			.inperson__svg {
-				width: 7vw;
+				width: 3rem;
 			}
 			&:hover .video__svg,
 			&:hover .virtual__svg,
 			&:hover .inperson__svg {
-				width: 15vw;
+				width: 3rem;
 			}
 			&:hover ul li svg {
-				font-size: 5vw;
+				font-size: 2rem;
 			}
 			&:hover h3 {
-				font-size: 5vw;
+				font-size: 1.5rem;
 			}
 			&:hover ul li p {
-				font-size: 5vw;
+				font-size: 1.2rem;
 			}
 			& ul {
 				display: flex;

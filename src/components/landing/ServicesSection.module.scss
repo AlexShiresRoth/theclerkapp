@@ -7,7 +7,7 @@
 	align-items: center;
 	width: 100%;
 	position: relative;
-	padding: 4rem;
+	padding: 4rem 0;
 	& .heading {
 		@include title-container;
 		z-index: 2;
@@ -61,14 +61,14 @@
 				position: relative;
 				& .bg_svg {
 					position: absolute;
-					width: 45vw;
+					width: 45rem;
 					z-index: 0;
 				}
 				& h3 {
 					color: $brand-accent;
 					font-size: 4rem;
 					z-index: 2;
-					margin: 0;
+					margin: 1rem 0;
 					&::after {
 						content: '';
 						display: block;
@@ -80,10 +80,11 @@
 				}
 				& p {
 					color: $brand-text;
-					font-size: 2.5rem;
+					font-size: 1.5rem;
 					max-width: 20vw;
 					text-align: center;
 					z-index: 2;
+					margin: 1rem 0;
 				}
 				& button {
 					height: 3rem;
@@ -94,6 +95,7 @@
 					z-index: 2;
 					transition: all 0.3s ease;
 					font-size: 1.2rem;
+					margin: 1rem 0;
 					&:hover {
 						cursor: pointer;
 						box-shadow: 0 1px 15px darken($brand-brown, 10%);
@@ -146,15 +148,16 @@
 			display: grid;
 			grid-template-columns: 1fr;
 			grid-template-rows: repeat(3, 1fr);
-			gap: 6rem;
+			gap: 8rem;
 			margin-top: 0rem;
 			z-index: 0;
+			margin: 4rem 0;
 			& .row {
 				display: grid;
 				grid-template-columns: 1fr;
 				position: relative;
 				grid-template-rows: repeat(2, auto);
-				gap: 1rem;
+				gap: 6rem;
 				align-items: center;
 				justify-items: center;
 				& .svg_container {
@@ -173,7 +176,7 @@
 					order: 2;
 					& .bg_svg {
 						position: absolute;
-						width: 100vw;
+						width: 35rem;
 						z-index: 0;
 					}
 					& h3 {
@@ -192,20 +195,20 @@
 					}
 					& p {
 						color: $brand-text;
-						font-size: 1.5rem;
+						font-size: 1.2rem;
 						max-width: 60%;
 						text-align: center;
 						z-index: 2;
 					}
 					& button {
-						height: 3rem;
-						width: 10rem;
+						height: 2.6rem;
+						width: 8rem;
 						background: $brand-brown;
 						border: 1px solid $brand-brown;
 						color: $brand-text;
 						z-index: 2;
 						transition: all 0.3s ease;
-						font-size: 1.2rem;
+						font-size: 1rem;
 						&:hover {
 							cursor: pointer;
 							box-shadow: 0 1px 15px darken($brand-brown, 10%);

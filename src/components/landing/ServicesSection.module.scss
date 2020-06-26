@@ -8,6 +8,7 @@
 	width: 100%;
 	position: relative;
 	padding: 4rem 0;
+	margin-bottom: 4rem;
 	& .heading {
 		@include title-container;
 		z-index: 2;
@@ -42,13 +43,13 @@
 		z-index: 0;
 		& .row {
 			display: grid;
-			grid-template-columns: repeat(2, auto);
+			grid-template-columns: repeat(2, 1fr);
 			position: relative;
 			grid-template-rows: 1fr;
 			gap: 10rem;
 			align-items: center;
 			& .svg_container {
-				width: 25vw;
+				width: 20rem;
 				z-index: 2;
 			}
 
@@ -61,7 +62,7 @@
 				position: relative;
 				& .bg_svg {
 					position: absolute;
-					width: 45rem;
+					width: 42rem;
 					z-index: 0;
 				}
 				& h3 {
@@ -161,7 +162,7 @@
 				align-items: center;
 				justify-items: center;
 				& .svg_container {
-					width: 80vw;
+					width: 20rem;
 					z-index: 2;
 					order: 1;
 				}

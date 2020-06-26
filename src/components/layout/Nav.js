@@ -9,7 +9,7 @@ const Nav = () => {
 	const [startPos, setPos] = useState(null);
 
 	const handleResize = () => {
-		setMobile(window.innerWidth < 900);
+		setMobile(window.innerWidth < 1000);
 	};
 	const handleNavToggle = (e) => setNavState(!navState);
 

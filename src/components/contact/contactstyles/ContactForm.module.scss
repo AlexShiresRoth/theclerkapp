@@ -12,30 +12,42 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: space-around;
-		background: darken($brand-blue, 10%);
 		padding: 2vh 2vw;
-		margin: 5vh 5vw;
-		min-width: 30vw;
+		margin-bottom: 5vh;
+		min-width: 50vw;
 		& .input__row {
 			display: flex;
 			flex-direction: column;
-			margin: 1vh 0;
+			margin: 1rem 0;
 			& label {
-				font-size: 1.5vw;
+				font-size: 1.5rem;
 				color: $brand-brown;
 				font-weight: 300;
 				font-family: 'EB Garamond';
+				&:after {
+					content: '*';
+					color: rgba(167, 47, 47, 0.808);
+				}
 			}
 			& input {
-				padding: 0.5rem 1rem;
+				padding: 0.5rem 0rem;
 				background: transparent;
-				border: 2px solid $brand-blue;
+				border: 0;
+				border-bottom: 2px solid $brand-dark-blue;
 				color: $brand-text;
 				font-size: 16px;
 				transition: all 0.3s ease-in-out;
-
+				font-family: 'EB Garamond';
 				&:hover {
-					border: 2px solid lighten($brand-blue, 5%);
+					border-bottom: 2px solid lighten($brand-blue, 5%);
+				}
+				&::placeholder {
+					color: $brand-text;
+					font-family: 'EB Garamond';
+				}
+				&:active,
+				&:focus {
+					outline: 0px solid transparent;
 				}
 			}
 			& input:-webkit-autofill,
@@ -50,30 +62,44 @@
 				transition: background-color 5000s ease-in-out 0s;
 			}
 			& textarea {
-				height: 15vh;
-				padding: 1rem;
+				height: 10rem;
+				padding: 1rem 0;
 				background: transparent;
-				border: 2px solid $brand-blue;
+				border: 2px solid $brand-dark-blue;
 				color: $brand-text;
 				font-size: 16px;
 				transition: all 0.3s ease-in-out;
+				resize: none;
+				font-family: 'EB Garamond';
 				&:hover {
 					border: 2px solid lighten($brand-blue, 5%);
 				}
+				&:active,
+				&:focus {
+					outline: 0px solid transparent;
+				}
+				&::placeholder {
+					color: $brand-text;
+					font-family: 'EB Garamond';
+				}
 			}
 			& button {
-				background: $brand-blue;
-				padding: 1rem;
+				background: $brand-brown;
+				height: 3.5rem;
 				color: $brand-text;
-				font-size: 1.5vw;
+				font-size: 1.6rem;
 				font-family: 'EB Garamond';
 				border: 1px solid $brand-blue;
 				transition: all 0.3s ease-in-out;
 				&:hover {
 					cursor: pointer;
-					background: darken($color: $brand-blue, $amount: 5%);
-					box-shadow: 0 4px 4px darken($brand-blue, 15%);
-					border: 1px solid darken($brand-blue, 15%);
+					background: darken($brand-brown, 5%);
+					box-shadow: 0 1px 10px darken($brand-brown, 15%);
+					border: 1px solid darken($brand-brown, 5%);
+				}
+				&:active,
+				&:focus {
+					outline: 0px solid transparent;
 				}
 			}
 		}
@@ -89,7 +115,7 @@
 			& .input__row {
 				margin: 1vh 5vw;
 				& label {
-					font-size: 10vw;
+					font-size: 1.3rem;
 				}
 				& input {
 					font-size: 16px;
@@ -98,7 +124,7 @@
 					font-size: 16px;
 				}
 				& button {
-					font-size: 8vw;
+					font-size: 1.3rem;
 				}
 			}
 		}

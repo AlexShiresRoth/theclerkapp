@@ -14,6 +14,9 @@
 	& a {
 		text-decoration: none;
 		color: $brand-text;
+		&:hover {
+			color: $brand-brown;
+		}
 	}
 	& span {
 		font-family: 'Raleway', sans-serif;
@@ -52,18 +55,18 @@
 		font-size: 75%;
 		& p {
 			color: $brand-text;
-			font-size: 4vw;
+			font-size: 1.2rem;
 			text-align: center;
 		}
 		& a {
-			font-size: 4vw;
+			font-size: 1.2rem;
 			text-decoration: none;
 			color: lighten($brand-blue, 25%);
 		}
 		& span {
 			font-family: 'Raleway', sans-serif;
 			color: $brand-text;
-			font-size: 4vw;
+			font-size: 1.2rem;
 		}
 	}
 	.column {
@@ -75,7 +78,8 @@
 			color: $brand-text;
 			border-bottom: 1px solid lighten($brand-blue, 5%);
 			padding: 0.2rem 0;
-			font-size: 8vw;
+			font-size: 1.3rem;
+			text-align: center;
 		}
 	}
 }

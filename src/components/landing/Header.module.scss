@@ -105,8 +105,8 @@
 			position: absolute;
 			bottom: 0;
 			& button {
-				width: 15rem;
-				padding: 1rem;
+				width: 15vw;
+				height: 3rem;
 				font-weight: 300;
 				transition: all 0.3s ease-in-out;
 				font-family: 'EB Garamond', sans-serif, serif;
@@ -172,21 +172,22 @@
 		.virtual__svg,
 		.inperson__svg {
 			font-size: 2.5rem;
-			width: 3vw;
+			width: 3rem;
 		}
 		&:hover {
 			flex-direction: column;
-			height: 35vh;
+			height: 18rem;
+			max-height: 25rem;
 			cursor: pointer;
 			background: lighter($brand-brown, 5%);
 		}
 		&:hover .video__svg,
 		&:hover .virtual__svg,
 		&:hover .inperson__svg {
-			width: 5vw;
+			width: 5rem;
 		}
 		&:hover li svg {
-			font-size: 2vw;
+			font-size: 1.4rem;
 		}
 
 		& ul {
@@ -200,17 +201,17 @@
 				align-items: center;
 				& p {
 					margin: 0 0.5rem;
+					font-size: 1.3rem;
 					opacity: 0;
 				}
 			}
 		}
 		&:hover ul {
-			font-size: 1rem;
 			opacity: 1;
 		}
 		&:hover ul li p {
 			opacity: 1;
-			font-size: 1.6rem;
+			font-size: 1.4rem;
 		}
 		&:hover h3 {
 			font-size: 2rem;
@@ -249,7 +250,7 @@
 	}
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1000px) {
 	.header {
 		justify-content: space-between;
 		overflow: visible;

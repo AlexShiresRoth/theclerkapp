@@ -24,7 +24,7 @@ const footer = () => {
 					<Link to="/resources">Resources</Link>
 				</div>
 				<div className={footerStyles.column}>
-					<p>The Clerk of Oxford Company ©2020</p>
+					<h3>The Clerk of Oxford Company ©2020</h3>
 					<p>
 						Website Design & Development by <a href="https://fillthevoid.io">fillthevoid.io</a>
 					</p>

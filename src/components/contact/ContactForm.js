@@ -18,14 +18,14 @@ const ContactForm = () => {
 		msg: '',
 	});
 
-	const onChange = e => {
+	const onChange = (e) => {
 		if (e) e.preventDefault();
 		setInputs({ ...inputs, [e.target.name]: [e.target.value] });
 	};
 
 	const { name, email, subject, message } = inputs;
 
-	const formSubmit = async e => {
+	const formSubmit = async (e) => {
 		if (e) e.preventDefault();
 
 		const corsAnywhere = 'https://cors-anywhere.herokuapp.com/';
@@ -42,7 +42,7 @@ const ContactForm = () => {
 				},
 			},
 		})
-			.then(res => {
+			.then((res) => {
 				console.log(res.data.msg);
 				setLoading(false);
 				setModalMsg({
@@ -63,7 +63,7 @@ const ContactForm = () => {
 					});
 				}, 6000);
 			})
-			.catch(err => {
+			.catch((err) => {
 				setLoading(false);
 				setModalMsg({
 					type: 'error',
@@ -81,15 +81,15 @@ const ContactForm = () => {
 	return (
 		<div className={formStyles.container}>
 			{isLoading ? <LoadingSpinner /> : <ContactModal msg={modalMsg} />}
-			<form className={formStyles.form} onSubmit={e => formSubmit(e)}>
+			<form className={formStyles.form} onSubmit={(e) => formSubmit(e)}>
 				<div className={formStyles.input__row}>
 					<label>Name</label>
 					<input
 						value={name}
-						onChange={e => onChange(e)}
+						onChange={(e) => onChange(e)}
 						name="name"
 						type="text"
-						placeholder="Emma Johnson"
+						placeholder="Enter your name"
 						required
 					/>
 				</div>
@@ -97,10 +97,10 @@ const ContactForm = () => {
 					<label>Email</label>
 					<input
 						value={email}
-						onChange={e => onChange(e)}
+						onChange={(e) => onChange(e)}
 						name="email"
 						type="email"
-						placeholder="student@gmail.com"
+						placeholder="Enter your email"
 						required
 					/>
 				</div>
@@ -108,10 +108,10 @@ const ContactForm = () => {
 					<label>Subject</label>
 					<input
 						value={subject}
-						onChange={e => onChange(e)}
+						onChange={(e) => onChange(e)}
 						name="subject"
 						type="text"
-						placeholder="Math, writing, reading..."
+						placeholder="Enter a subject regarding your message"
 						required
 					/>
 				</div>
@@ -119,15 +119,15 @@ const ContactForm = () => {
 					<label>Message</label>
 					<textarea
 						value={message}
-						onChange={e => onChange(e)}
+						onChange={(e) => onChange(e)}
 						name="message"
 						type="text"
-						placeholder="Hi, I would like to inquire about your rates."
+						placeholder="Enter your message."
 						required
 					/>
 				</div>
 				<div className={formStyles.input__row}>
-					<button onClick={e => formSubmit(e)}>Submit</button>
+					<button onClick={(e) => formSubmit(e)}>Submit</button>
 				</div>
 			</form>
 		</div>
